@@ -1,0 +1,120 @@
+.body-row{
+    height: 50px;
+    vertical-align: middle !important;
+    td{
+        font-size: 14px;
+        font-weight: 600;
+        max-width: 70px !important;
+        white-space: nowrap;
+    }
+        td:not(:last-child) {
+            overflow-x: auto;
+        }
+    
+        td::-webkit-scrollbar {
+            height: 1px;
+        }
+}
+.row-action{
+    margin-top: 5px;
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    span{
+        padding: 4px 6px;
+        border-radius: 6px;
+        border: none;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--light-color);
+        transition: .2s;
+        cursor: pointer;
+    }
+    .eye-icon{
+        background-color: #FFA21D;
+    }
+    .edit-icon{
+        background-color: var(--primary-light-color);
+    }
+    .delete-icon{
+        background-color: #FF3A6E;
+    }
+    
+}
+.body-row:nth-child(even){
+    background-color: #f3f3f3;
+}
+
+.delete-modal{
+    top: 35%;
+    position: relative;
+    font-size: 20px;
+    .warning-icon{
+        position: absolute;
+        top: 14%;
+        left: 3%;
+        font-size: 28px;
+        color: red;
+    }
+    .modal-subtitle{
+        margin-left: 1.5rem;
+        font-size: 22px;
+    }
+    .delete-text{
+        font-size: 17px;
+        font-weight: 500;
+        margin-left: 1.5rem;
+    }
+    .delete-btn{
+        background-color: red;
+        color: var(--light-color);
+        border: 6px;
+        font-weight: 500;
+        &:hover{
+            color: var(--light-color) !important;
+            background-color: rgb(247, 68, 68) !important;
+        }
+
+    }
+}
+
+.doctor__data-modal{
+    top: 20%;
+    .modal-subtitle{
+        font-size: 18px;
+    }
+}
+
+.detail__item-box{
+    margin-top: 1rem;
+    border: 1px solid #f3f3f3;
+    border-radius: 4px;
+    .detail-item{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: 2rem;
+        border-bottom: 1px solid #f3f3f3;
+        strong{
+            display: inline-block;
+            font-size: 15px;
+            max-width: 200px;
+            font-weight: 700;
+            width: 100%;
+            padding: .6rem 1rem;
+        }
+        p{
+            width: 100%;
+            font-weight: 600;
+            padding-right: 5px;
+            font-size: 14px;
+            // border-left: 1px solid  #f3f3f3;
+            
+        }
+    }
+}
+.doctor__data-modal .ant-modal-footer
+.ant-btn{
+    display: none !important;
+}

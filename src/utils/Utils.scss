@@ -1,0 +1,143 @@
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 20px;
+}
+
+// ADD DOCTOR MODAL STYLES
+
+.modal-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0%;
+    top: 0;
+    background-color: #3f3d3d7e;
+    width: 100vw !important;
+    height: 100vh !important;
+    // height: 100%;
+
+}
+
+.add__doctor-modal, .add__user-modal {
+    max-width: 750px;
+    width: 100%;
+    background-color: hsl(0, 0%, 100%);
+    padding: 1.2rem;
+    border-radius: 14px;
+
+    .modal-title {
+        font-size: 16px;
+        color: var(--dark-color);
+    }
+}
+
+.modal-form {
+    margin-top: 1.2rem;
+    width: 100%;
+    border-top: 1px solid #f1f1f1;
+    padding-bottom: 1rem;
+}
+
+.form-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 2rem;
+    width: 100%;
+    margin-top: 1rem;
+
+    label {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        row-gap: 10px;
+        font-size: 15px;
+        font-weight: 600;
+
+        input {
+            width: 100%;
+            height: 40px;
+            border-radius: 6px;
+            text-indent: 10px;
+            transition: .2s;
+            border: 1px solid #e0dfdf;
+            font-size: 15px;
+            font-weight: 500;
+            outline: none;
+
+            &:focus {
+                box-shadow: 0 0 4px 1px var(--primary-light-color);
+            }
+        }
+    }
+    .specialization-select{
+        height: 40px;
+    }
+}
+.password-item{
+    max-width: 250px !important;
+    width: 100% !important;
+}
+.password-item{
+    max-width: 370px;
+}
+
+.select-gender {
+    width: 100%;
+
+    .gender-title {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .gender-item {
+        margin-top: 12px;
+        display: flex;
+        justify-content: flex-start !important;
+        column-gap: 4px;
+        label {
+            display: flex !important;
+            justify-content: flex-start !important;
+            flex-direction: unset;
+            align-items: center;
+            column-gap: 5px;
+
+            input {
+                width: auto;
+                height: 25px;
+            }
+        }
+    }
+}
+
+.form__action-btns{
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f1f1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 1rem;
+   .cancel-btn{
+    padding: 10px 26px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: .1s ease-in-out;
+    &:hover{
+        cursor: pointer;
+        opacity: 0.8;
+        transform: scale(1.02)
+    }
+   }
+   .create-btn{
+    @extend .cancel-btn;
+    background-color: var(--primary-light-color);
+    color: var(--light-color);
+   }
+}

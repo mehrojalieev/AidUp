@@ -1,0 +1,63 @@
+.patient-settings {
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 8px;
+}
+
+.patient-settings-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+.patient-profile-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.patient-profile-icon {
+    font-size: 120px;
+    color: #007bff;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.patient-profile-form {
+    width: 100%;
+    margin: 40px 0;
+}
+.patient-profile-input,
+.patient-profile-submit {
+    width: 250px;
+}
+
+@media screen and (max-width: 768px) {
+    .patient-settings {
+        width: 100%;
+    }
+    .patient-profile-form {
+        margin: 10px 0;
+    }
+    .patient-settings-title {
+        font-size: 20px;
+    }
+    .patient-profile-input,
+    .patient-profile-submit {
+        margin: 0 !important;
+        width: 100%;
+    }
+    .ant-form-item-label {
+        padding: 0 !important;
+    }
+    .patient-profile-icon {
+        font-size: 80px;
+        padding: 10px;
+    }
+}

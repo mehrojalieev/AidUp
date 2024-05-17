@@ -1,0 +1,104 @@
+.announcement{
+    width: 100%;
+    background-color: var(--primary-light-color);
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.announcement-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.phone-item{
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    i{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        padding: 7px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        font-size: 17px;
+        color: var(--light-color);
+        border: 1px solid var(--light-color);
+    }
+    p{
+        color: var(--light-color);
+        font-size: 16px;
+        font-weight: 500    ;
+    }
+    .number-text{
+        color: var(--light-color);
+        font-size: 17px ;
+        font-weight: 500;
+        text-decoration: none;
+        transition: .2s;
+        &:hover{
+            opacity: .8;
+        }
+    }
+}
+
+.top-actions{
+    display: flex;
+    column-gap: 2rem;
+}
+.work-time{
+    display: flex;
+    align-items: center;
+    column-gap: 3px;
+    span{
+        color: var(--light-color);
+        font-size: 19px;
+        margin-top: 1px;
+    }
+    p{
+        color: var(--light-color);
+        font-size: 15px;
+        font-weight: 500;
+    }
+}
+
+.number-text{
+    color: var(--light-color);
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.select-language{
+    background-color: transparent !important;
+    width: 110px;
+    .ant-select-selector{
+        background: transparent !important;
+        color: var(--light-color) !important;
+        border: none !important;
+        font-weight: 8  00 !important;
+    }
+    .ant-select-arrow{
+        color: var(--light-color) !important;
+    }
+}
+
+
+.announcement-wrapper .auth-link{
+    display: flex;
+    align-items: center;
+    column-gap: 3px;
+    text-decoration: none;
+    color: var(--light-color);
+    font-size: 18px;
+    letter-spacing: .3px;
+    font-weight: 500;
+    transition: .2s;
+   
+    span{
+        font-size: 22px;
+    }
+}

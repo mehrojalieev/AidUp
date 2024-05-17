@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+.auth {
+    width: 100vw;
+    font-family: "Quicksand", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+}
+
+.auth-wrapper {
+    width: 100% !important;
+    max-width: 470px !important;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    h2 {
+        font-size: 35px;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+    }
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.fullname-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 1rem;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.register-input {
+    margin-top: 10px;
+    width: 100% !important;
+    height: 50px;
+    outline: none;
+    padding-left: 10px;
+    border-radius: 15px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    &:focus {
+        color: #1a75ff;
+        border-color: #1a75ff;
+    }
+}
+
+.validation__email-input {
+    margin: 20px 0 7px 0;
+}
+
+form .btn {
+    height: 50px;
+    width: 100%;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+form .btn .btn-layer {
+    height: 100%;
+    width: 300%;
+    position: absolute;
+    left: -100%;
+    background: -webkit-linear-gradient(right, #003366, #004080, #0059b3, #0073e6);
+    border-radius: 15px;
+    transition: all 0.4s ease;
+}
+
+form .btn:hover .btn-layer {
+    left: 0;
+}
+
+form .btn input[type="submit"] {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    background: none;
+    border: none;
+    color: #fff;
+    padding-left: 0;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.sign-up__title {
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    // color: var(--primary-color);
+    color: #000;
+}
+
+.forgot__password-text {
+    text-align: left !important;
+    width: 100%;
+    padding-left: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.exist__account-text {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    font-weight: 500;
+    .check-link {
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.register-socials {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .fullname-container {
+        flex-wrap: wrap;
+    }
+}

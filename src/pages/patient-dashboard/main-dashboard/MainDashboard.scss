@@ -1,0 +1,48 @@
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.doctor-in {
+    text-align: left;
+    font-weight: 500 !important;
+}
+
+.doctor-phone-icon {
+    background-color: #007aff;
+    color: #fff;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+}
+
+.patient-dashboard-carousel {
+    width: 100%;
+    margin: 60px auto;
+    .slick-track {
+        display: flex !important;
+        justify-content: space-between !important;
+        gap: 30px;
+    }
+}

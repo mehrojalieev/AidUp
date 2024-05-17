@@ -1,0 +1,62 @@
+.doctor-row-container {
+    width: 100%;
+    margin: 30px 0;
+    gap: 30px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+}
+
+.doctor-box {
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 0;
+}
+
+.doctor-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-0%, -50%);
+    z-index: 1;
+}
+
+.doctor-box:hover {
+    box-shadow: 0 3px 10px #e8e8e8;
+}
+
+.doctor-in-name {
+    font-weight: 600 !important;
+    font-size: 20px;
+}
+.doctor-in-chat {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.doctor-in-info {
+    width: 100%;
+}
+
+.doctor-in-text-info {
+    margin: 4px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .doctor-row-container {
+        width: 100%;
+        margin: 30px 0;
+        gap: 30px 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}

@@ -1,0 +1,238 @@
+.extra-footer__wrapper {
+    background-color: var(--primary-dark-color);
+    margin-top: 15%;
+    padding: 30px;
+    position: relative;
+    a {
+        text-decoration: none;
+    }
+    li {
+        list-style: none;
+    }
+}
+
+.extra-footer__contact {
+    position: relative;
+    background-color: var(--primary-light-color);
+    margin-top: -10%;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.footer-email__contact {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    .footer-email__icon {
+        font-size: 70px;
+        color: var(--light-color);
+    }
+    
+    .footer-email__text {
+        font-size: 24px;
+        max-width: 300px;
+        line-height: 34px;
+        color: var(--light-color);
+    }
+}
+
+
+
+.footer-email__form {
+    max-width: 590px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    border-radius: 10px ;
+    overflow: hidden;
+    transition: .2s;
+   
+    input {
+        width: 100%;
+        padding: 20px;
+        border: 1px solid var(--light-color);
+        color: var(--dark-color) !important;
+        outline: none;
+        font-weight: 500;
+        font-size: 16px;
+        display: flex;
+        height: 100%;
+        flex: 1;
+    }
+    button {
+        border: none;
+        background-color: #55a6e9;
+        padding: 0px 30px;
+        font-weight: 600;
+        font-size: 16px;
+        letter-spacing: .5px;
+        height: 100% !important;
+        color: var(--light-color);
+        transition: .2s;
+        &:hover{
+            background-color: #6cb8f7;
+            cursor: pointer;
+        }
+    }
+}
+
+.extra-footer__rows {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: flex-start;
+    justify-content: space-between;
+    // height: 300px;
+    margin-top: 60px;
+}
+
+.extra-footer__row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.extra-footer__row-text {
+    max-width: 270px;
+    font-size: 16px;
+    color: #e0e2f3;
+    line-height: 2.4;
+}
+
+.extra-footer__row-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .extra-footer__row-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #3f435f;
+        color: #e0e2f3;
+    }
+}
+
+.extra-footer__menu-row {
+    display: flex;
+    gap: 30px;
+}
+
+.extra-footer__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.extra-footer__title {
+    font-size: 25px;
+    margin-bottom: 15px;
+    color: #e0e2f3;
+}
+
+.extra-footer__link {
+    font-size: 16px;
+    color: #e0e2f3;
+}
+
+.extra-footer__line {
+    height: 1px;
+    width: 100%;
+    background-color: #3f435f;
+}
+
+.extra-footer__concate {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 200px;
+    font-size: 26px;
+    color: #e0e2f3;
+    p {
+        color: #e0e2f3;
+        font-size: 16px;
+    }
+}
+
+.extra-footer__card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.extra-footer__img {
+    width: 66px;
+    height: 66px;
+    background-color: #3f435f;
+}
+
+.extra-footer__about {
+    max-width: 170px;
+    h4 {
+        color: #e0e2f3;
+    }
+}
+
+.extra-footer__date {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #e0e2f3;
+}
+
+@media only screen and (max-width:1250px) {
+    .extra-footer__contact {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    .footer-email__contact {
+        flex-direction: column;
+    }
+    .extra-footer__wrapper {
+        margin-top: 20%;
+    }
+    .extra-footer__contact {
+        margin-top: -20%;
+    }
+}
+
+@media only screen and (max-width:1100px) {
+    .extra-footer__rows {
+        grid-template-columns: auto auto;
+        gap: 50px;
+    }
+    .extra-footer__wrapper {
+        margin-top: 35%;
+    }
+    .extra-footer__contact {
+        margin-top: -35%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .extra-footer__rows {
+        grid-template-columns: auto;
+        justify-content: center;
+    }
+    .footer-email__text {
+        font-size: 25px;
+    }
+    .footer-email__form {
+        flex-direction: column;
+        button {
+            width: 100%;
+        }
+    }
+    .extra-footer__wrapper {
+        margin-top: 55%;
+    }
+    .extra-footer__contact {
+        margin-top: -55%;
+    }
+}

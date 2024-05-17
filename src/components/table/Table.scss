@@ -1,0 +1,42 @@
+table{
+    width: 100% !important;
+    margin-top: 1rem;
+    text-align: center;
+    overflow: hidden;
+    border-collapse: collapse;
+    border-radius: 6px;
+}
+
+
+table > thead > tr{
+    height: 50px;
+    background-color: var(--primary-light-color);
+    th{
+
+        text-transform: capitalize !important;
+        font-size: 15px;
+        color: var(--light-color);
+    
+        font-weight: 600;
+    }
+}
+
+.content-actions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 1.5rem;
+    margin-top: 1.6rem;
+    form{
+        max-width: 500px;
+        width: 100%;
+    }
+}
+
+.table-skeleton{
+    margin-top: 1rem;
+    width: 100% ;
+    .skeleton-item{
+        width: 100%;
+    }
+}

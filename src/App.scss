@@ -1,0 +1,14 @@
+.back__top{
+    position: fixed;
+    bottom: 3% ;
+    right: 3%;
+    background-color: blue;
+    padding: 13px;
+    border-radius: 6px;
+    color: var(--light-color);
+    font-size: 28px;
+    transition: .3s;
+    transform: translateY(100px);
+    cursor: pointer;
+    z-index: 15;
+}

@@ -1,0 +1,151 @@
+.home-appointment{
+    margin-top: 2rem;
+}
+
+.home__appointment-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 1.6rem;
+}
+.working__time-card{
+    background-color: var(--primary-light-color);
+    max-width: 400px !important;
+    width: 100% !important;
+    border-radius: 24px;
+    padding: 2rem 1.7rem;
+  
+    .card-title{
+        color: var(--light-color);
+        font-size: 30px;
+        font-weight: 700;
+    }
+    .card-text{
+        margin-top: 10px;
+        font-weight: 500;
+        color: var(--light-color);
+        opacity: .8;
+        line-height: 24px;
+        margin-bottom: 10px;
+    }
+}
+.time-item{
+    margin-top: 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #ffffff88;
+    &:last-child{
+        border-bottom: none;
+    }
+    p{  
+        color: var(--light-color);
+        font-weight: 600;
+        font-size: 17px;
+    }
+}
+
+// APPOINTMENT WRAPER STYLE
+.appointment__form-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    column-gap: 2rem;
+    padding: 2.2rem;
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: var(--light-color);
+
+}
+
+.appointment__form-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+    img{
+        max-width: 320px;
+        width: 100%;
+        height: 210px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+}
+
+.appointment-form{
+    max-width: 370px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .appointment__form-title{
+        color: var(--primary-dark-color);
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    input, select{
+        margin-top: 1.2rem;
+        width: 100%;
+        height: 50px;
+        border-radius: 24px;
+        outline: none;
+        border: none;
+        background-color: #F5F7FA;
+        text-indent: 15px;
+        font-weight: 600;
+        font-size: 15px;
+
+    }
+    select{
+        cursor: pointer;
+    }
+    .form__book-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1.4rem;
+        width: 100%;
+        border-radius: 24px;
+        padding: 1.3rem 0 !important;
+        background-color: var(--primary-light-color) !important;
+        color: var(--light-color) !important;
+        font-weight: 600;
+        font-size: 15px;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        transition: .3s;
+        &:hover{
+            transform: scale(1.03);
+            cursor: pointer;
+            opacity: .8;
+        }
+    }
+}
+.form-date{
+    width: 100%;
+    column-gap: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .form__date-label{
+        margin-top: 1rem;
+        font-size: 15px;
+        font-weight: 600;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        input{
+            margin-top: 5px;
+            height: 45px;
+            font-size: 13px;
+            padding-right: 10px;
+        }
+    }
+}
