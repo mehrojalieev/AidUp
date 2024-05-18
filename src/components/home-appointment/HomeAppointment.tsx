@@ -1,4 +1,4 @@
-import  { ChangeEvent, useState } from 'react'
+import  {  useState } from 'react'
 import Container from '../../utils/Utils'
 import './HomeAppointment.scss'
 import { useGetDoctors } from '../../service/query/useGetDoctors'

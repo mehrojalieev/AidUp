@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import './Appointment.scss'
 import { AiFillHome } from "react-icons/ai";
 import { IoIosArrowForward } from "react-icons/io";
@@ -10,7 +10,7 @@ import { Carousel } from 'antd';
 const Appointment = () => {
   const [numOfShots, setNumOfShots] = useState(2);
 
-  const onChange = (currentSlide) => {
+  const onChange = (currentSlide: any) => {
     console.log(currentSlide);
   };
 
@@ -73,7 +73,7 @@ const Appointment = () => {
               <input type="date" />
               <input type="text" placeholder='Time' />
             </div>
-            <textarea cols="10" rows="4" placeholder='Type Appoint Note'></textarea>
+            <textarea cols={"10" as any} rows={"4" as any} placeholder='Type Appoint Note'></textarea>
             <button className='form-btn'>SUBMIT</button>
           </form>
         </div>
@@ -93,8 +93,8 @@ const Appointment = () => {
         <p className='appoint-desc container'>It is a long established fact that a reader will be distracted by at its layout. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
         <div className='appoint-carousel container' >
           <Carousel className='carousel-wrapperr' dots={true} slidesToShow={numOfShots} afterChange={onChange}>
-            {data.map(item => (
-              <div className='carusosel-itemm'>
+            {data.map((_, index) => (
+              <div key={index} className='carusosel-itemm'>
                 <p className='caruosel-text'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even believable.There are many variations of passages of Lorem Ipsum available</p>
                 <div className='appoint-user-wrapper'>
                   <img src='https://medicate.peacefulqode.com/wp-content/uploads/2022/02/3-3.png' alt="" />
