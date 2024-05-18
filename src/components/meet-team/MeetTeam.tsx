@@ -4,11 +4,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay,  Navigation } from 'swiper/modules';
 import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 
-const doctorsList =[]
+const doctorsList: any =[]
 
 for (let index = 1; index < 20; index++) {
     doctorsList.push({
@@ -45,7 +45,7 @@ const MeetTeam = () => {
                         className="mySwiper team-swiper"
                     >
                         {
-                            doctorsList.map((doctor, index) =>
+                            doctorsList.map((doctor: any, index: any) =>
                             <SwiperSlide className='team__swiper-slide' key={index}>
                                 <div className="slide-image">
                                 <img src={doctor.image} alt={doctor.name} />
