@@ -1,41 +1,40 @@
-import { useEffect, useRef, useState } from 'react'
+import  { useEffect, useRef, useState } from 'react'
 import './UserCard.scss'
-import { Button, Divider, Modal, notification, message, Upload, Image, Form, Input, DatePicker } from 'antd'
+import { Button, Divider, Modal, Upload, Form, Input, DatePicker } from 'antd'
 import { useDeleteUser } from '../../../../service/mutation/useDeleteUser'
-import { UpdateUserModal } from '../../../../utils/Utils'
+// import { UpdateUserModal } from '../../../../utils/Utils'
 import { useUpdateUser } from '../../../../service/mutation/useUpdateUser'
-import { toast } from 'react-toastify'
-import { PlusOutlined } from '@ant-design/icons';
-import { UploadOutlined } from '@ant-design/icons';
+// import { toast } from 'react-toastify'
+// import { UploadOutlined } from '@ant-design/icons';
 import { client } from '../../../../service/QueryClient'
-import { useForm } from 'react-hook-form'
+import { UserType } from '../../../../types';
 
 
-const UserCard = ({ userItem }) => {
-    const { register, handleSubmit } = useForm()
-    const token = localStorage.getItem('token')
-    const { mutate } = useUpdateUser()
+const UserCard = ({ userItem }: {userItem: any}) => {
+    const { mutate  } = useUpdateUser()
     // --- STATE HOOKS ---
-    const clickOutside = useRef()
-    const [userId, setUserId] = useState('')
+    const clickOutside: any = useRef()
+    const [userId, setUserId] = useState<string>('')
     const [fileList, setFileList] = useState([])
-    const [photoUrl, setPhotourl] = useState(null)
-    const [imageList, setImageList] = useState([])
+    // const [photoUrl, setPhotourl] = useState(null)
+    // const [imageList, setImageList] = useState([])
     const [openAction, setOpenAction] = useState(false)
-    const [currentUser, setCurrentUser] = useState(null)
-    const [updatePhoto, setUpdatePhoto] = useState(null)
-    const [previewImage, setPreviewImage] = useState('')
+    const [currentUser, setCurrentUser] = useState<UserType |undefined>()
+    // const [updatePhoto, setUpdatePhoto] = useState(null)
+    // const [previewImage, setPreviewImage] = useState('')
     const [deleteModal, setDeleteModal] = useState(false)
-    const [previewOpen, setPreviewOpen] = useState(false)
-    const [updatingBirthday, setUpdatingBirthday] = useState('')
-    const [updatingLastname, setUpdatingLastname] = useState('')
+    // const [previewOpen, setPreviewOpen] = useState(false)
+    const [updatingBirthday, setUpdatingBirthday] = useState<String | undefined>('')
     const [updateUpdateModal, setUpdateUserModal] = useState(false)
     const [updatingFirstname, setUpdatingFirstname] = useState(currentUser?.firstname)
 
 
+    console.log(updatingBirthday, updatingFirstname);
+    
+
+
     useEffect(() => {
         setUpdatingFirstname(currentUser?.firstname)
-        setUpdatingLastname(currentUser?.lastname)
         setUpdatingBirthday(currentUser?.dateOfBirth)
     }, [currentUser])
 
@@ -43,9 +42,10 @@ const UserCard = ({ userItem }) => {
     const { mutate: mutateDelete } = useDeleteUser()
 
 
+
     useEffect(() => {
-        const handleClickOutside = (event: Event) => {
-            if (clickOutside.current && !clickOutside.current.contains(event.target)) {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (clickOutside.current && !clickOutside.current.contains(event.target))  {
                 setOpenAction(false);
             }
         };
@@ -54,11 +54,12 @@ const UserCard = ({ userItem }) => {
             document.removeEventListener('click', handleClickOutside);
         };
     }, []);
+    
 
 
     // --- Delete User Function ---
     const handleDeleteUser = () => {
-        mutateDelete(userId, {
+        mutateDelete(userId as any, {
             onSuccess: (res) => {
                 res.statusCode === 200 && setDeleteModal(false)
                 client.invalidateQueries({ queryKey: ['get-users'] })
@@ -74,22 +75,22 @@ const UserCard = ({ userItem }) => {
 
 
 
-    const handleUploadPhoto = (e) => {
-        const file = e.target.files[0]
-        if (file) {
-            const fileReader = new FileReader()
-            fileReader.onload = (e) => {
-                const content = e.target.result
-                setUpdatePhoto(content)
-                setPhotourl(content)
-            }
-            fileReader.readAsDataURL(file)
-        }
-    }
+    // const handleUploadPhoto = (e: any) => {
+    //     const file = e.target.files[0]
+    //     if (file) {
+    //         const fileReader = new FileReader()
+    //         fileReader.onload = (e) => {
+    //             const content = e.target.result
+    //             setUpdatePhoto(content)
+    //             setPhotourl(content)
+    //         }
+    //         fileReader.readAsDataURL(file)
+    //     }
+    // }
 
     // --- Update User Function ---
-    const handleUpdateUser = (values) => {
-        const formData = new FormData();
+    const handleUpdateUser = (values: any) => {
+        const formData: any = new FormData();
         formData.append('Id', userItem?.id);
         formData.append('Firstname', values?.firstname);
         formData.append('Lastname', values?.lastname);
@@ -111,44 +112,19 @@ const UserCard = ({ userItem }) => {
 
 
         mutate(formData, {
-            onSuccess: (res) => {
-                // res.statusCode === 200 && setUpdateUserModal(false)
-                // client.invalidateQueries({ queryKey: ['get-users'] })
-                console.log(res);
-            },
-            onError: (error) => console.log(error)
+            // onSuccess: (res: Response) => {
+            //     // res.statusCode === 200 && setUpdateUserModal(false)
+            //     // client.invalidateQueries({ queryKey: ['get-users'] })
+            //     console.log(res);
+            // },
+            onError: (error: Error) => console.log(error)
         })
     }
 
-    // ---- Upload Image ----
-    const getBase64 = (file) =>
-        new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = () => resolve(reader.result);
-            reader.onerror = (error) => reject(error);
-        });
-
-    const handlePreview = async (file) => {
-        if (!file.url && !file.preview) {
-            file.preview = await getBase64(file.originFileObj);
-        }
-        setPreviewImage(file.url || file.preview);
-        setPreviewOpen(true);
-    };
-
-    const handleChange = ({ imageList: newFileList }) => setImageList(newFileList);
-
-    const uploadButton = (
-        <button style={{ border: 0, background: 'none', }} type="button">
-            <PlusOutlined />
-            <div style={{ marginTop: 8, }}  > Upload Photo </div>
-        </button>
-    );
 
     return (
         <>
-            <div ref={clickOutside} onClick={() => setOpenAction(true)} className='user-card'>
+            <div ref={clickOutside as any} onClick={() => setOpenAction(true)} className='user-card'>
                 <p className='user-role'>{userItem.userRole === '0' ? 'Staff' : 'Client'}</p>
                 <span onClick={() => setOpenAction(true)} className='material-symbols-outlined user__action-btn'>more_vert</span>
                 <img src={'https://png.pngtree.com/png-vector/20230918/ourmid/pngtree-man-in-shirt-smiles-and-gives-thumbs-up-to-show-approval-png-image_10094381.png'} alt={userItem.firstname} />
@@ -160,7 +136,7 @@ const UserCard = ({ userItem }) => {
                         <span className='item-icon material-symbols-outlined'>edit</span>
                         <strong className='item-text'>Edit</strong>
                     </div>
-                    <div onClick={() => { setDeleteModal(true); setUserId(userItem.id) }} className="action-item">
+                    <div onClick={() => { setDeleteModal(true); setUserId(userItem.id as any) }} className="action-item">
                         <span className='item-icon material-symbols-outlined'>delete</span>
                         <strong className='item-text'>Delete</strong>
                     </div>
@@ -169,13 +145,13 @@ const UserCard = ({ userItem }) => {
                         <strong className='item-text'>Reset Password</strong>
                     </div>
                 </div>
-                <Modal className='delete__user-modal' open={deleteModal} okText={<Button onClick={handleDeleteUser} className='delete-btn'>Delete</Button>} okType='none' onOk={() => setDeleteModal(true)} onCancel={() => setDeleteModal(false)}>
+                <Modal className='delete__user-modal' open={deleteModal} okText={<Button onClick={handleDeleteUser} className='delete-btn'>Delete</Button>} okType={'none' as any} onOk={() => setDeleteModal(true)} onCancel={() => setDeleteModal(false)}>
                     <span className='modal-icon material-symbols-outlined'>warning</span>
                     <h5 className='modal-subtitle'>Delete User ?</h5>
                     <p className='modal-text'>This action can not bu undone. Do you want to continue ?</p>
                 </Modal>
             </div>
-            <Modal open={updateUpdateModal} title={<h5 className='update-subtitle'>Update</h5>} onCancel={() => setUpdateUserModal(false)} okType='none' className='update__user-modal'>
+            <Modal open={updateUpdateModal} title={<h5 className='update-subtitle'>Update</h5>} onCancel={() => setUpdateUserModal(false)} okType={'none' as any} className='update__user-modal'>
                 <Divider />
                 <Form
                     name="basic"
@@ -245,7 +221,7 @@ const UserCard = ({ userItem }) => {
                                 return false
                             }}
                             fileList={fileList}
-                            onChange={({ fileList: newFileList }) => setFileList(newFileList)}
+                            onChange={({ fileList: newFileList }) => setFileList(newFileList as any)}
                         >
                             <p className="ant-upload-text">Click or drag file to this area to upload</p>
                             <p className="ant-upload-hint">

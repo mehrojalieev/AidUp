@@ -1,4 +1,4 @@
-import  { useState } from 'react'
+import  { ChangeEvent, useState } from 'react'
 import Container from '../../utils/Utils'
 import './HomeAppointment.scss'
 import { useGetDoctors } from '../../service/query/useGetDoctors'
@@ -8,15 +8,17 @@ import { toast } from 'react-toastify'
 
 
 const HomeAppointment = () => {
-  const userData = JSON.parse(localStorage.getItem('user'))
+
+  const storeUser = localStorage.getItem('user')
+  const userData = storeUser ? JSON.parse(storeUser) : undefined
 
   const { data } = useGetDoctors()
   const { mutate: BookApi } = useBookAppointment()
 
   // HOOKS
-  const [patientName, setPatientName] = useState<String>('')
-  const [patientEmail, setPatientEmail] = useState<String>('')
-  const [patientNumber, setPatientNumber] = useState()
+  const [patientName, setPatientName] = useState<any>('')
+  const [patientEmail, setPatientEmail] = useState<any>('')
+  const [patientNumber, setPatientNumber] = useState<string>()
   const [doctorId, setDoctorId] = useState()
   const [FromDate, setFromDate] = useState('')
   const [ToDate, setToDate] = useState('')
@@ -42,7 +44,6 @@ const HomeAppointment = () => {
             })
             setIsLoading(false)
             setPatientName('')
-            setDoctorId('')
             setPatientNumber('')
             setPatientEmail('')
             setFromDate('')
@@ -94,15 +95,15 @@ const HomeAppointment = () => {
               <img src="https://avatars.dzeninfra.ru/get-zen_doc/9828307/pub_64deb5b0aa5bde3ae56a6712_64deb5baaa5bde3ae56a72f6/scale_1200" />
               <img src="https://sun9-55.userapi.com/impg/KWHTIsJgBxfM8kwNlFsSOBleEcCZ6zt6m1zGCg/oSxWAZToTwc.jpg?size=1000x675&quality=96&sign=a3b0e2a73d3cf52bdadb777e3442ff53&c_uniq_tag=WcVdgf-fBxO0MgEKqh6eChJ2xtfI-fIgRQC3EJ3gRK8&type=album" />
             </div>
-            <form onSubmit={handleBooking} className="appointment-form">
+            <form onSubmit={handleBooking as any} className="appointment-form">
               <h3 className='appointment__form-title'>Make An Appointment</h3>
               <input value={patientName} onChange={(e) => setPatientName(e.target.value)} type="text" placeholder='Your Name' />
               <input value={patientEmail} onChange={(e) => setPatientEmail(e.target.value)} type="text" placeholder='Email Address' />
-              <input value={patientNumber} onChange={(e) => setPatientNumber(e.target.value)} type="number" placeholder='Phone Number' />
-              <select value={doctorId} onChange={(e) => setDoctorId(e.target.value)}>
+              <input value={patientNumber} onChange={(e: any) => setPatientNumber(e.target.value)} type="number" placeholder='Phone Number' />
+              <select value={doctorId} onChange={(e: any) => setDoctorId(e.target.value)}>
                 <option value="">Choose Doctor</option>
                 {
-                  data?.data.map(doctor =>
+                  data?.data.map((doctor: any) =>
                     <option key={doctor?.id} value={doctor.id}>{doctor?.firstName}</option>
 
                   )
@@ -117,7 +118,7 @@ const HomeAppointment = () => {
                   <input value={ToDate} type="date" onChange={(e) => setToDate(e.target.value)} />
                 </label>
               </div>
-              <Button onClick={handleBooking} type='submit' className='form__book-btn' loading={isLoading}>BOOK AN APPOINTMENT</Button>
+              <Button onClick={handleBooking as any} type={'submit' as any} className='form__book-btn' loading={isLoading}>BOOK AN APPOINTMENT</Button>
               {/* <button type='submit' className='form__book-btn'>BOOK AN APPOINTMENT</button> */}
             </form>
           </div>
