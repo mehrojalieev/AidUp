@@ -1,4 +1,3 @@
-import React from 'react'
 import './HeroFeature.scss'
 import Container from '../../utils/Utils'
 const HeroFeature = () => {

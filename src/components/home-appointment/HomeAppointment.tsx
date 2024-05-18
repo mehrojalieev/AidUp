@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import Container from '../../utils/Utils'
 import './HomeAppointment.scss'
 import { useGetDoctors } from '../../service/query/useGetDoctors'
@@ -14,8 +14,8 @@ const HomeAppointment = () => {
   const { mutate: BookApi } = useBookAppointment()
 
   // HOOKS
-  const [patientName, setPatientName] = useState('')
-  const [patientEmail, setPatientEmail] = useState('')
+  const [patientName, setPatientName] = useState<String>('')
+  const [patientEmail, setPatientEmail] = useState<String>('')
   const [patientNumber, setPatientNumber] = useState()
   const [doctorId, setDoctorId] = useState()
   const [FromDate, setFromDate] = useState('')
@@ -23,11 +23,12 @@ const HomeAppointment = () => {
   const [isLoading, setIsLoading] = useState(false)
 
 
-  const handleBooking = (e) => {
-    setIsLoading(true)
+
+  const handleBooking = (e: Event) => {
     e.preventDefault()
-    const BookingData = {
-      userId: userData && Number(userData.Id),
+    setIsLoading(true)
+    const BookingData: any = {
+      userId: userData ? Number(userData.Id) : undefined,
       doctorId: Number(doctorId),
       from: new Date(FromDate).toISOString(),
       to: new Date(ToDate).toISOString()

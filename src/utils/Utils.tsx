@@ -4,10 +4,11 @@ import {  Select } from 'antd';
 import { useCreateDoctor } from "../service/mutation/useCreateDoctor";
 import { client } from "../service/QueryClient";
 import { useCreateUser } from "../service/mutation/useCreateUser";
+import { Children } from "../types";
 
 
 // CONTAINER CONTENT
-const Container = ({ children }: {children: ReactNode}) => {
+const Container = ({ children }: Children) => {
   return (
     <div className="container">
       {children}

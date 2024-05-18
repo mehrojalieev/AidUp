@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Doctors.scss'
-import ApiInstance from '../../../api'
 import { AddDoctorModal } from '../../../utils/Utils';
 import Table from '../../../components/table/Table';
 import { Select, Input } from 'antd'
 import { useGetDoctors } from '../../../service/query/useGetDoctors';
 const { Search } = Input;
+import { DoctorType } from '../../../types';
 
 
 
@@ -55,37 +55,39 @@ for (let i = 0; i < 46; i++) {
 
 const Doctors = () => {
     // HOOKS
-    const [objectKey, setObjectKey] = useState(null)
-    const [DoctorList, setDoctorList] = useState([])
-    const [inputValue, setInputValue] = useState('')
-    const [orderedValue, setOrderedValue] = useState('')
-    const [rowPage, setRowPage] = useState(10)
-    const [openDoctorModal, setOpenDoctorModal] = useState(false)
+    const [objectKey, setObjectKey] = useState<any>(null)
+    const [DoctorList, setDoctorList] = useState<DoctorType[]>([])
+    const [inputValue, setInputValue] = useState<String>('')
+    const [orderedValue, setOrderedValue] = useState<String>('')
+    const [rowPage, setRowPage] = useState<Number>(10)
+    const [openDoctorModal, setOpenDoctorModal] = useState<Boolean>(false)
 
     const { data: doctorsList } = useGetDoctors()
 
     // Get Object Keys
     useEffect(() => {
-        const allKeys = doctorsList?.data.reduce((keys, doctor) => {
+        const allKeys = doctorsList?.data.reduce((keys: any, doctor: any) => {
             return keys.concat(Object.keys(doctor))
         }, [])
-        const uniqueKeys = [...new Set(allKeys)]
+        const uniqueKeys: any = [...new Set(allKeys)]
         setObjectKey(uniqueKeys)
     }, [doctorsList])
 
     //  Render Doctors List from Array
-    const handleOrder = (value) => {
+    const handleOrder = (value: any) => {
         setOrderedValue(value)
     };
 
-    
+
     useEffect(() => {
         if (inputValue.length > 0) {
-            const searchedData = doctorsList?.data?.filter(doctor => doctor?.firstName?.toLowerCase().includes(inputValue?.toLowerCase()))
+            const searchedData = doctorsList?.data?.filter((doctor: DoctorType) => doctor?.firstName?.toLowerCase().includes(inputValue?.toLowerCase()))
             setDoctorList(searchedData)
+            console.log(searchedData);
+
         }
         else if (orderedValue) {
-            const orderedData = doctorsList?.data?.filter(doctor => doctor?.specialization?.toLowerCase() === orderedValue?.toLowerCase())
+            const orderedData = doctorsList?.data?.filter((doctor: DoctorType) => doctor?.specialization?.toLowerCase() === orderedValue?.toLowerCase())
             setDoctorList(orderedData)
         }
         else {
@@ -120,7 +122,7 @@ const Doctors = () => {
                 </form>
                 <div className="order__page-action">
 
-                    <select className='select-page' onChange={(e) => setRowPage(e.target.value)}>
+                    <select className='select-page' onChange={(e: any) => setRowPage(e.target.value)}>
                         <option value={5}>5</option>
                         <option value={10}>10</option>
                         <option value={15}>15</option>
@@ -137,8 +139,8 @@ const Doctors = () => {
                 />
 
             </div>
-            <Table rowPage={rowPage} objectKeys={objectKey} inputValue={inputValue} orderedValue={orderedValue} DoctorList={DoctorList} />
-            <AddDoctorModal DoctorList={doctorsList?.data} openDoctorModal={openDoctorModal} setOpenDoctorModal={setOpenDoctorModal} />
+            <Table tableType='doctors' rowPage={rowPage} tableHeader={objectKey} renderData={DoctorList} />
+            <AddDoctorModal openDoctorModal={openDoctorModal} setOpenDoctorModal={setOpenDoctorModal} />
         </div>
     )
 }

@@ -5,22 +5,26 @@ import { useDeleteDoctor } from '../../../service/mutation/useDeleteDoctor';
 import { client } from '../../../service/QueryClient';
 import { toast } from 'react-toastify';
 
-const DoctorTr = ({ doctorItem }) => {
+const DoctorTr = ({ doctorItem }: any) => {
   const [doctorId, setDoctorId] = useState()
   const [doctorName, setDoctorName] = useState('')
   const [updateModal, setUpdateModal] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [detailModal, setDetailModal] = useState(false)
   const [doctorDetail, setDoctorDetail] = useState(null)
-  const [randomYear, setRandomYear] = useState(Math.floor(Math.random() * 15))
+  const [randomYear, setRandomYear] = useState<Number>()
+
+  useEffect(() => {
+    setRandomYear(Math.floor(Math.random() * 15))
+  }, [])
 
 
   const { mutate } = useDeleteDoctor()
-  const handleDelete = (e) => {
+  const handleDelete = (e: Event) => {
     e.preventDefault()
     mutate(doctorId, {
       onSuccess: (res) => {
-        client.invalidateQueries({ queryKey: 'doctors' })
+        client.invalidateQueries({ queryKey: 'doctors' } as any)
         if (res.statusCode === 200) {
           setIsModalOpen(false)
           toast.success('Doctor Deleted', {

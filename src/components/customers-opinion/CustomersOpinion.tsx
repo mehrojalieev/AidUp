@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa";
 
 
 
-const CommentsAll = []
+const CommentsAll: any  = []
 
 for (let index = 1; index < 4; index++) {
   CommentsAll.push({
@@ -27,7 +27,7 @@ const CustomersOpinion = () => {
           <h2 className="opinion-subtitle">What Our Customers Says?</h2>
           <Carousel speed={1300} className='opinion__card-carousel' autoplay>
             {
-              CommentsAll.map(comment =>
+              CommentsAll.map((comment: any) =>
                 <div key={comment.id} className="card-wrapper">
                   <div className="card">
                     <div className="card-icons">

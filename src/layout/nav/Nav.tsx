@@ -43,15 +43,12 @@ const MenuData = [
 const Nav = () => {
 
 
-  const isRegistered = JSON.parse(localStorage.getItem('user'))
 
   const { pathname } = useLocation()
 
 
 
   // State Hooks
-  const [openSearch, setOpenSearch] = useState(false)
-  const [itemLists, setItemLists] = useState("")
   const [openResponsiveMenu, setOpenResponsiveSubMenu] = useState(false)
   const [openSubitems, setOpenSubitems] = useState(false)
   const [scrollY, setScrollY] = useState(0)
@@ -74,14 +71,14 @@ const Nav = () => {
     <nav className={scrollY > 40 ? 'nav-fixed' : ''} >
       <Container>
         <div className="nav-wrapper">
-          <Link className="nav-logo">
+          <Link to={'/'} className="nav-logo">
             <h1>AzharInc</h1>
           </Link>
 
           <ul className="nav-menu">
             {
               MenuData.map((menu_item, index) =>
-                <li onMouseEnter={() => setItemLists(menu_item?.menu_items)} className="menu-item" key={index}>
+                <li  className="menu-item" key={index}>
                   <NavLink to={menu_item.route_link} className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} >{menu_item.title}</NavLink>
                   <span className="material-symbols-outlined">{menu_item.icon}</span>
                   <div className="menu__dropdown-list">
@@ -123,14 +120,14 @@ const Nav = () => {
         {
           MenuData.map((item, index) =>
             <li key={index} className="menu-item">
-              <Link onClick={() => setOpenSubitems(!openSubitems)} className="item-link">
+              <Link to={'/'} onClick={() => setOpenSubitems(!openSubitems)} className="item-link">
                 {item.title}
                 <span className="material-symbols-outlined"> {item.icon}</span>
               </Link>
               <div className="item-subitem">
                 {
                   item?.menu_items?.map((subitem, index) =>
-                    <Link key={index} className="subitem-link">{subitem.item_name}</Link>
+                    <Link to={'/'} key={index} className="subitem-link">{subitem.item_name}</Link>
                   )
                 }
               </div>
