@@ -17,9 +17,9 @@ import Doctors from '../pages/doctor-dashboard/doctors/Doctors'
 import Patients from '../pages/doctor-dashboard/patients/Patients'
 import Appointments from '../pages/doctor-dashboard/appointments/Appointments'
 import Users from '../pages/doctor-dashboard/users/Users'
-import ServicePage from '../pages/service-page/ServicePage'
 import AboutUs from '../pages/about-us/AboutUs'
 import MainDashboard from "../pages/patient-dashboard/main-dashboard/MainDashboard"
+import Services from "../pages/services/Services"
 
 
 const RouteController = () => {
@@ -49,7 +49,8 @@ const RouteController = () => {
         <Route path='users' element={<Users />} />
       </Route>
 
-      <Route path='service/:id' element={<ServicePage/>}/>
+      <Route path="services" element={<Services/>}/>
+
     </Routes>
   )
 }

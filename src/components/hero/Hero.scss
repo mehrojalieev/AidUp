@@ -34,7 +34,7 @@ background: linear-gradient(209deg, rgba(59, 59, 59, 0.144) 0%, rgba(255, 255, 2
     top: 15%;
     left: 5%;
     text-align: left;
-    z-index: 5 !important;
+    z-index: 10 !important;
     .content-subtitle{
         width: fit-content;
         margin: auto;
@@ -46,9 +46,9 @@ background: linear-gradient(209deg, rgba(59, 59, 59, 0.144) 0%, rgba(255, 255, 2
     }
     .content-title{
         margin-top: 1.6rem;
-        font-size: 50px;
+        font-size: 48px;
         color: var(--light-color);
-        max-width: 500px;
+        max-width: 640px;
         letter-spacing: .6px;
         font-weight: 400;
         line-height: 4rem;

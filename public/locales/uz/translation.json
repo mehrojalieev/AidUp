@@ -1,0 +1,58 @@
+{
+    "announcement": {
+        "phone": "Aloqa",
+        "working_hour": "Ish vaqti",
+        "account": "Profil",
+        "register": "Ro'yxatdan o'tish"
+    },
+    "nav": {
+        "home": "Asosiy",
+        "service": "Xizmatlar",
+        "contact": "Bog'lanish",
+        "about": "Biz Haqimizda",
+        "appointment": "Tayinlash"
+    },
+    "hero": {
+        "hero_top_title": "Bugun Maxsus",
+        "hero_bottom_title": "  Maslahat Oling",
+        "hero_text": " Mutaxassis tibbiy maslahat so'rayapsizmi, davolanishdagi eng so'nggi yutuqlarni qidiryapsizmi, siz to'g'ri joyga keldingiz. Bizning tajribali mutaxassislarimiz sizni optimal salomatlik va farovonlik sari yo'l ko'rsatishga intiladi.",
+        "hero_contact": "BOG'LANISH",
+        "hero_more": "MA'LUMOT OLISH"
+    },
+    "statistic": {
+        "patient": "Xursand Bemorlar",
+        "doctor": "Professional shifokorlar",
+        "operation": "Muvaffaqiyatli Operatsiyalar",
+        "award": "Milliy mukofotlar"
+    },
+    "meet-team": {
+        "subtitle": "Mutaxassis Shifokorlar",
+        "title": "Professional shifokorlarimiz bilan tanishing"
+    },
+    "appointment": {
+        "work-card": {
+            "title": "Ish vaqti",
+            "info": "Mavjud bo'lgan qismlarning xilma-xilligi sharmandali narsadir.",
+            "monday": "Dushanba",
+            "tuesday": "Seshanba",
+            "wednesday": "Chorshanba",
+            "thursday": "Payshanba",
+            "friday": "Juma",
+            "saturday": "Shanba",
+            "sunday": "Chorshanba",
+            "am": "am",
+            "pm": "pm",
+            "close": "Yopiq"
+        },
+        "form": {
+            "title": "Qabulga Yozilish",
+            "name": "Ismingiz",
+            "address": "Manzilingiz",
+            "number": "Telefon Raqam",
+            "select": "Shifokor Tanlash",
+            "from": "Boshlash", 
+            "to": "Tugash",
+            "button": "QABULGA YOZILISH"
+        }
+    }
+}

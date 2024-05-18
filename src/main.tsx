@@ -5,6 +5,7 @@ import { client } from './service/QueryClient.ts'
 import { BrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom/client'
 import { Suspense, lazy } from 'react'
+import './i18next/language.ts'
 const App = lazy(() => import("./App"));
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
