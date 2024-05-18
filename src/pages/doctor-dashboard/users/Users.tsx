@@ -4,6 +4,7 @@ import { Tooltip, Input, Skeleton } from 'antd';
 import UserCard from './user-card/UserCard';
 import { useGetUsers } from '../../../service/query/useGetUsers';
 import { AddUserModal } from '../../../utils/Utils';
+import { UserType } from '../../../types';
 const { Search } = Input;
 
 
@@ -11,8 +12,8 @@ const Users = () => {
   const [searchValue, setSearchValue] = useState('')
   const [openUserModal, setOpenUserModal] = useState(false)
 
-  const { data, isLoading,  isFetched } = useGetUsers('/users/get-all')
-  const filteredData = data?.filter(item => item.firstname?.toLowerCase().includes(searchValue.toLowerCase()))
+  const { data, isLoading,   } = useGetUsers('/users/get-all')
+  const filteredData = data?.filter((item: UserType) => item.firstname?.toLowerCase().includes(searchValue.toLowerCase()))
 
   return (
     <div className='users-content'>
@@ -22,7 +23,7 @@ const Users = () => {
           placeholder="Search Doctor..."
           allowClear
           enterButton="Search"
-          size="medium"
+          size={"medium" as any}
           onChange={(e) => setSearchValue(e.target.value)}
         />
         <div className="content__header-action">
@@ -40,14 +41,14 @@ const Users = () => {
       </div>
       <div className="users__card-wrapper">
       {
-          filteredData?.length > 0 ? filteredData?.map(user =>
-          <UserCard userItem={user} key={user.id} />
+          filteredData?.length > 0 ? filteredData?.map((user: UserType, index: any) =>
+          <UserCard userItem={user} key={index} />
           )
             : isLoading ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 11, 12].map((_, index) =>
           <div key={index} className='skeleton__card-wrapper'>
             <Skeleton.Node className="card-skeleton">
               <Skeleton.Avatar active={true} size={'large'} shape='circle' style={{ width: 120, height: 110, marginTop: 50 }} />
-              <Skeleton.Input active={true} size='medium' style={{ width: 120, height: 20 }} />
+              <Skeleton.Input active={true} size={'medium' as any} style={{ width: 120, height: 20 }} />
             </Skeleton.Node>
           </div>
           )

@@ -55,11 +55,11 @@ for (let i = 0; i < 46; i++) {
 
 const Doctors = () => {
     // HOOKS
+    const [rowPage, setRowPage] = useState<Number>(10)
     const [objectKey, setObjectKey] = useState<any>(null)
-    const [DoctorList, setDoctorList] = useState<DoctorType[]>([])
     const [inputValue, setInputValue] = useState<String>('')
     const [orderedValue, setOrderedValue] = useState<String>('')
-    const [rowPage, setRowPage] = useState<Number>(10)
+    const [DoctorList, setDoctorList] = useState<DoctorType[]>([])
     const [openDoctorModal, setOpenDoctorModal] = useState<Boolean>(false)
 
     const { data: doctorsList } = useGetDoctors()
@@ -83,7 +83,6 @@ const Doctors = () => {
         if (inputValue.length > 0) {
             const searchedData = doctorsList?.data?.filter((doctor: DoctorType) => doctor?.firstName?.toLowerCase().includes(inputValue?.toLowerCase()))
             setDoctorList(searchedData)
-            console.log(searchedData);
 
         }
         else if (orderedValue) {
@@ -105,18 +104,13 @@ const Doctors = () => {
                 </div>
             </div>
             <div className="doctor__content-actions">
-
-
                 <form className='search__form-wrapper'>
-
-
                     <Search
                         placeholder="Search Doctor..."
                         allowClear
                         className='search-form'
                         enterButton
                         size="middle"
-
                         onChange={(e) => setInputValue(e.target.value)}
                     />
                 </form>

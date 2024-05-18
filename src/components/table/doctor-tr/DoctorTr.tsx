@@ -4,6 +4,7 @@ import { Modal, Button, Divider } from 'antd';
 import { useDeleteDoctor } from '../../../service/mutation/useDeleteDoctor';
 import { client } from '../../../service/QueryClient';
 import { toast } from 'react-toastify';
+import { DoctorType } from '../../../types';
 
 const DoctorTr = ({ doctorItem }: any) => {
   const [doctorId, setDoctorId] = useState()
@@ -11,8 +12,8 @@ const DoctorTr = ({ doctorItem }: any) => {
   const [updateModal, setUpdateModal] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [detailModal, setDetailModal] = useState(false)
-  const [doctorDetail, setDoctorDetail] = useState(null)
-  const [randomYear, setRandomYear] = useState<Number>()
+  const [randomYear, setRandomYear] = useState<number>()
+  const [doctorDetail, setDoctorDetail] = useState<DoctorType>()
 
   useEffect(() => {
     setRandomYear(Math.floor(Math.random() * 15))
@@ -55,12 +56,12 @@ const DoctorTr = ({ doctorItem }: any) => {
         <span onClick={() => { setIsModalOpen(true); setDoctorId(doctorItem.id); setDoctorName(doctorItem.firstName) }} className='material-symbols-outlined delete-icon'>Delete</span>
       </td>
       {/* DELETE MODAL */}
-      <Modal className='delete-modal' title={<h5 className='modal-subtitle'>Delete Doctor ?</h5>} open={isModalOpen} onOk={handleDelete} okText={<Button className='delete-btn'>Delete</Button>} okType='none' onCancel={() => setIsModalOpen(false)}>
+      <Modal className='delete-modal' title={<h5 className='modal-subtitle'>Delete Doctor ?</h5>} open={isModalOpen} onOk={handleDelete as any} okText={<Button className='delete-btn'>Delete</Button>} okType={'none' as any} onCancel={() => setIsModalOpen(false)}>
         <span className=' material-symbols-outlined warning-icon'>warning</span>
         <p className='delete-text'>{`Are you sure you want to delete user ${doctorName} `}?</p>
       </Modal>
       {/* DETAIL MODAL */}
-      <Modal className='doctor__data-modal' title={<h5 className='modal-subtitle'>Show Doctor Details</h5>} open={detailModal} onCancel={() => setDetailModal(false)} okType='none' okText=' ' cancelText={' '}  >
+      <Modal className='doctor__data-modal' title={<h5 className='modal-subtitle'>Show Doctor Details</h5>} open={detailModal} onCancel={() => setDetailModal(false)} okType={'none' as any} okText=' ' cancelText={' '}  >
         <Divider />
         <div className="detail__item-box">
           <div className="detail-item">
@@ -91,7 +92,7 @@ const DoctorTr = ({ doctorItem }: any) => {
       </Modal>
 
       {/* UPDATE MODAL */}
-      <Modal className='doctor__update-modal' title={<h5 className='modal-subtitle'>Show Doctor Details</h5>} open={updateModal} onCancel={() => setUpdateModal(false)} okType='none' >
+      <Modal className='doctor__update-modal' title={<h5 className='modal-subtitle'>Show Doctor Details</h5>} open={updateModal} onCancel={() => setUpdateModal(false)} okType={'none' as any} >
 
       </Modal>
     </tr>

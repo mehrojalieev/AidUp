@@ -1,17 +1,13 @@
-import React, { useState } from 'react'
-import {
-    DiffOutlined,
-    AppstoreOutlined,
-    CalendarOutlined, SettingOutlined, UserOutlined
-} from '@ant-design/icons';
+import  { useState } from 'react'
+import { DiffOutlined, AppstoreOutlined, CalendarOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Layout, Menu, theme, Popover } from 'antd';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie'
 import './PatientDashboard.scss'
 const { Header, Sider, Content } = Layout;
 
-const PatientDashboard = () => {
-    const [open, setOpen] = useState(false);
+const PatientDashboard: any = () => {
+    const [open, setOpen] = useState<boolean>(false);
     const navigate = useNavigate()
     const {
         token: { colorBgContainer, borderRadiusLG },
@@ -20,10 +16,10 @@ const PatientDashboard = () => {
     const hide = () => {
         setOpen(false);
     };
-    const handleOpenChange = (newOpen) => {
+    const handleOpenChange = (newOpen: any) => {
         setOpen(newOpen);
     };
-    // if (!user) return navigate('/auth/login')
+    if (!user) return navigate('/auth/login')
     return (
         <div>
             <Layout style={{ minHeight: '100vh' }}>
@@ -62,7 +58,7 @@ const PatientDashboard = () => {
                     />
                 </Sider>
                 <Layout>
-                    <Header style={{  background: colorBgContainer, display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: '0 20px' }}>
+                    <Header style={{ background: colorBgContainer, display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: '0 20px' }}>
                         <div></div>
                         <Popover
                             content={<a onClick={hide}>Close</a>}

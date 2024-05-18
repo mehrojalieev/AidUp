@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import ValidationModal from '../../../components/validation-modal/ValidationModal';
+import { useState } from 'react';
 import ApiInstance from '../../../api';
 
 
@@ -9,7 +7,7 @@ const EmailValidate = () => {
   const [openModal, setOpenModal] = useState(false)
 
   
-  const handleValidateEmail = async (e) => {
+  const handleValidateEmail = async (e: Event) => {
     e.preventDefault();
     try {
       const response = await ApiInstance.post(`/auth/register/send-code?mail=${validationEmail}`)
@@ -27,15 +25,14 @@ const EmailValidate = () => {
     <>
     <div style={openModal ? {display: "none"} : {display: 'block'}} className="auth-wrapper">
       <h2>Email Validation</h2>
-      <form onSubmit={handleValidateEmail} className='auth-form'>
+      <form onSubmit={handleValidateEmail as any} className='auth-form'>
         <input value={validationEmail} onChange={(e) => setValidationEmail(e.target.value)} className='register-input validation__email-input' type="email" placeholder='Email' />
         <div className="field btn">
-          <div class="btn-layer"></div>
+          <div className="btn-layer"></div>
           <input type="submit" value="NEXT" />
         </div>
       </form>
     </div>
-      <ValidationModal openModal={openModal} setOpenModal={setOpenModal}/>
     </>
   )
 

@@ -1,38 +1,38 @@
-import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google'
-import { createButton } from 'react-social-login-buttons'
-import { BsFacebook } from 'react-icons/bs'
-import { LoginSocialFacebook } from 'reactjs-social-login'
+// import { createButton } from 'react-social-login-buttons'
+// import { BsFacebook } from 'react-icons/bs'
+// import { LoginSocialFacebook } from 'reactjs-social-login'
 import { useForm } from 'react-hook-form'
 import { useRegister } from '../../../service/mutation/useRegister'
 
-const config = {
-    icon: BsFacebook,
-    style: {
-        background: '#3b5999',
-        width: '43px',
-        height: '40px',
-        padding: '9px',
-        borderRadius: '50%',
-    }
-}
+// const config = {
+//     icon: BsFacebook,
+//     style: {
+//         background: '#3b5999',
+//         width: '43px',
+//         height: '40px',
+//         padding: '9px',
+//         borderRadius: '50%',
+//     }
+// }
 
-const FacebookLoginButtons = createButton(config)
+// const FacebookLoginButtons = createButton(config)
 const Register = () => {
     const { mutate } = useRegister()
     const { register, handleSubmit } = useForm()
     const navigate = useNavigate()
 
-    const handleRegisterUser = (values) => {
-        const formdata = new FormData()
+    const handleRegisterUser = (values: any) => {
+        const formdata: any = new FormData()
         formdata.append('firstname', values.firstname)
         formdata.append('lastname', values.lastname)
         formdata.append('email', values.email)
         formdata.append('password', values.password)
         formdata.append('dateOfBirth', new Date(values.dateOfBirth).toISOString())
         mutate(formdata, {
-            onSuccess: (res) => navigate('/auth/login'),
+            onSuccess: () => 
+                navigate('/auth/login'),
             onError: (error) => console.log(error)
         })
     }
@@ -67,7 +67,7 @@ const Register = () => {
                             }}
                             size='large'
                             theme='filled_blue'
-                            context='contin_with'
+                            context={'contin_with' as any}
                             locale='english'
                             type='icon'
                             shape='circle'
@@ -77,7 +77,7 @@ const Register = () => {
                         />
                     </GoogleOAuthProvider>
                     {/* FACEBOOK LOGIN */}
-                    <LoginSocialFacebook
+                    {/* <LoginSocialFacebook
                         appId='678828277643445'
                         fields='id'
                         onResolve={(response) => {
@@ -89,7 +89,7 @@ const Register = () => {
                     >
                         <FacebookLoginButtons
                         />
-                    </LoginSocialFacebook>
+                    </LoginSocialFacebook> */}
                 </div>
             </form>
         </div>
