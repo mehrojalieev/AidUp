@@ -1,4 +1,3 @@
-import React from 'react'
 import './Patient.scss'
 import Container from '../../utils/Utils'
 import patient from '../../assets/photos/doctor-patient.jpg'
