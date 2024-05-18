@@ -3,6 +3,7 @@ import Container from '../../utils/Utils'
 import { Link, NavLink, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 // import { UserOutlined } from "@ant-design/icons"
+import { useTranslation } from "react-i18next"
 
 const MenuData = [
   {
@@ -42,7 +43,7 @@ const MenuData = [
 
 const Nav = () => {
 
-
+  const {t} = useTranslation()
 
   const { pathname } = useLocation()
 
@@ -76,27 +77,11 @@ const Nav = () => {
           </Link>
 
           <ul className="nav-menu">
-            {
-              MenuData.map((menu_item, index) =>
-                <li  className="menu-item" key={index}>
-                  <NavLink to={menu_item.route_link} className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} >{menu_item.title}</NavLink>
-                  <span className="material-symbols-outlined">{menu_item.icon}</span>
-                  <div className="menu__dropdown-list">
-                    {
-                      menu_item.menu_items?.map((item, index) =>
-                        <NavLink to={item.link} className={({ isActive }) => isActive ? "item-link item-link__active" : "item-link"} key={index}>{item.item_name}</NavLink>
-                      )
-                    }
-                  </div>
-                </li>
-              )
-            }
+                  <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={'/'} > {t("nav.home")}</NavLink>
+                  <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"}  to='services'> {t("nav.service")}</NavLink>
+                  <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"}  to='contact-us'> {t("nav.contact")}</NavLink>
+                  <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to='about-us'> {t("nav.about")}</NavLink>
           </ul>
-
-          <div className="nav__search-form">
-            <input type="search" placeholder="Search..." />
-            <span className="material-symbols-outlined">search</span>
-          </div>
 
 
 
@@ -104,7 +89,7 @@ const Nav = () => {
 
 
           <div className="authorization-action">
-            <Link to={'/appointment'} className="appointment-link">APPOINTMENT + </Link>
+            <Link to={'/appointment'} className="appointment-link">{t("nav.appointment")} + </Link>
           </div>
 
           <Link to={'/auth/login'} className="responsive-auth">

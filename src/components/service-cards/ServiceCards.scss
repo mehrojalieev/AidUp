@@ -1,0 +1,20 @@
+.service-cards{
+    margin-top: 2rem;
+
+}
+
+.service__cards-header{
+    width: 100%;
+    text-align: center;
+    .card__header-subtitle{
+            font-size: 18px;
+            color: var(--success-color);
+    }
+    .card__header-title{
+        color: var(--primary-dark-color);
+        font-size: 46px;
+        max-width: 600px;
+        font-weight: 800;
+        margin: 1rem auto 0;
+    }
+}

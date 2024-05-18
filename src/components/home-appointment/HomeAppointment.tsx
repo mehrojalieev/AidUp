@@ -5,9 +5,12 @@ import { useGetDoctors } from '../../service/query/useGetDoctors'
 import { useBookAppointment } from '../../service/mutation/useBookApppointment'
 import { Button } from 'antd'
 import { toast } from 'react-toastify'
+import { useTranslation } from 'react-i18next'
 
 
 const HomeAppointment = () => {
+
+  const {t} = useTranslation()
 
   const storeUser = localStorage.getItem('user')
   const userData = storeUser ? JSON.parse(storeUser) : undefined
@@ -67,27 +70,27 @@ const HomeAppointment = () => {
       <Container>
         <div className="home__appointment-wrapper">
           <div className="working__time-card">
-            <h4 className="card-title">Working Hours</h4>
-            <p className='card-text'>Variations of passages amt available are anything embarrassing.</p>
+            <h4 className="card-title">{t("appointment.work-card.title")}</h4>
+            <p className='card-text'>{t("appointment.work-card.info")}</p>
             <div className="time-item">
-              <p>Monday - Tuesday:</p>
-              <p>9am - 6pm</p>
+              <p>{t("appointment.work-card.monday")} - {t("appointment.work-card.tuesday")}:</p>
+              <p>9{t("appointment.work-card.am")} - 6{t("appointment.work-card.pm")}</p>
             </div>
             <div className="time-item">
-              <p>Wednesday - Thursday:</p>
-              <p>8am - 5pm</p>
+              <p>{t("appointment.work-card.wednesday")} - {t("appointment.work-card.thursday")}:</p>
+              <p>8{t("appointment.work-card.am")} - 5{t("appointment.work-card.pm")}</p>
             </div>
             <div className="time-item">
-              <p>Friday:</p>
-              <p>7am - 10pm</p>
+              <p>{t("appointment.work-card.friday")}:</p>
+              <p>7{t("appointment.work-card.am")} - 10{t("appointment.work-card.pm")}</p>
             </div>
             <div className="time-item">
-              <p>Saturday:</p>
-              <p>10am - 7pm</p>
+              <p>{t("appointment.work-card.saturday")}:</p>
+              <p>10{t("appointment.work-card.am")} - 7{t("appointment.work-card.pm")}</p>
             </div>
             <div className="time-item">
-              <p>Sunday</p>
-              <p>Closed:</p>
+              <p>{t("appointment.work-card.sunday")}</p>
+              <p>{t("appointment.work-card.close")}:</p>
             </div>
           </div>
           <div className="appointment__form-wrapper">
@@ -97,11 +100,11 @@ const HomeAppointment = () => {
             </div>
             <form onSubmit={handleBooking as any} className="appointment-form">
               <h3 className='appointment__form-title'>Make An Appointment</h3>
-              <input value={patientName} onChange={(e) => setPatientName(e.target.value)} type="text" placeholder='Your Name' />
-              <input value={patientEmail} onChange={(e) => setPatientEmail(e.target.value)} type="text" placeholder='Email Address' />
-              <input value={patientNumber} onChange={(e: any) => setPatientNumber(e.target.value)} type="number" placeholder='Phone Number' />
+              <input value={patientName} onChange={(e) => setPatientName(e.target.value)} type="text" placeholder={t("appointment.form.title")} />
+              <input value={patientEmail} onChange={(e) => setPatientEmail(e.target.value)} type="text" placeholder={t("appointment.form.address")} />
+              <input value={patientNumber} onChange={(e: any) => setPatientNumber(e.target.value)} type="number" placeholder={t("appointment.form.number")} />
               <select value={doctorId} onChange={(e: any) => setDoctorId(e.target.value)}>
-                <option value="">Choose Doctor</option>
+                <option value="">{t("appointment.form.select")}</option>
                 {
                   data?.data.map((doctor: any) =>
                     <option key={doctor?.id} value={doctor.id}>{doctor?.firstName}</option>
@@ -111,14 +114,14 @@ const HomeAppointment = () => {
               </select>
               <div className="form-date">
 
-                <label className='form__date-label' htmlFor="from">From
+                <label className='form__date-label' htmlFor="from">{t("appointment.form.from")}
                   <input value={FromDate} type="date" onChange={(e) => setFromDate(e.target.value)} />
                 </label>
-                <label className='form__date-label' htmlFor="to">To
+                <label className='form__date-label' htmlFor="to">{t("appointment.form.to")}
                   <input value={ToDate} type="date" onChange={(e) => setToDate(e.target.value)} />
                 </label>
               </div>
-              <Button onClick={handleBooking as any} type={'submit' as any} className='form__book-btn' loading={isLoading}>BOOK AN APPOINTMENT</Button>
+              <Button onClick={handleBooking as any} type={'submit' as any} className='form__book-btn' loading={isLoading}>{t("appointment.form.button")}</Button>
               {/* <button type='submit' className='form__book-btn'>BOOK AN APPOINTMENT</button> */}
             </form>
           </div>

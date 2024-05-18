@@ -6,6 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css';
 import { Autoplay,  Navigation } from 'swiper/modules';
 import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 
 const doctorsList: any =[]
@@ -21,12 +22,15 @@ for (let index = 1; index < 20; index++) {
 
 // import required modules
 const MeetTeam = () => {
+
+    const {t} = useTranslation()
+
     return (
         <div className='meet-team'>
             <Container>
                 <div className="meet__team-header">
-                    <h5 className='header-subtitle'>EXPERT DOCTORS</h5>
-                    <h2 className='header-title'>Meet Our Professional Doctors</h2>
+                    <h5 className='header-subtitle'>{t("meet-team.subtitle")}</h5>
+                    <h2 className='header-title'>{t("meet-team.title")}</h2>
                 </div>
 
                 <div className="team__carousel-wrapper">

@@ -1,0 +1,58 @@
+{
+    "announcement": {
+        "phone": "Phone",
+        "working_hour": "Working hours",
+        "account": "Account",
+        "register": "Register"
+    },
+    "nav": {
+        "home": "Home",
+        "service": "Services",
+        "contact": "Contact Us",
+        "about": "About Us",
+        "appointment": "Appointment"
+    },
+    "hero": {
+        "hero_top_title": "Get a Special",
+        "hero_bottom_title": " Consultation Today",
+        "hero_text": " Whether you're seeking expert medical advice, looking for the latest advancements in treatments, you've come to the right place. Our team of experienced professionals is committed to guiding you on your journey to optimal health and well-being.",
+        "hero_contact": "CONTACT US",
+        "hero_more": "READ MORE"
+    },
+    "statistic": {
+        "patient": "Satisfied Patients",
+        "doctor": "Professional Doctors",
+        "operation": "Operations Successful",
+        "award": "National Awards Win"
+    },
+    "meet-team": {
+        "subtitle": "EXPERT DOCTORS",
+        "title": "Meet Our Professional Doctors"
+    },
+    "appointment": {
+        "work-card": {
+            "title": "Working Hours",
+            "info": "Variations of passages amt available are anything embarrassing.",
+            "monday": "Monday",
+            "tuesday": "Tuesday",
+            "wednesday": "Wednesday",
+            "thursday": "Thursday",
+            "friday": "Friday",
+            "saturday": "Saturday",
+            "sunday": "Sunday",
+            "am": "am",
+            "pm": "pm",
+            "close": "Closed"
+        },
+        "form": {
+            "title": "Make An Appointment",
+            "name": "Name",
+            "address": "Address",
+            "number": "Number",
+            "select": "Choose Doctor",
+            "from": "From",
+            "to": "To",
+            "button": "BOOK AN APPOINTMENT"
+        }
+    }
+}

@@ -1,18 +1,19 @@
-import { useState } from 'react'
 import './AnnouncementBar.scss'
 import Container from '../../utils/Utils'
 import { FaPhone } from "react-icons/fa6";
 import { Link, useLocation } from 'react-router-dom';
 import { Select } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 const AnonouncementBar = () => {
+
+  const {i18n, t} = useTranslation()
+
 
   const storedUser = localStorage.getItem('user');
   const userAuth: any = storedUser ? JSON.parse(storedUser) : null;
 
-  const [language, setLanguage] = useState('ENGLISH')
 
-  console.log(language);
 
   const { pathname } = useLocation()
   if (pathname.includes("patient")) return null
@@ -25,18 +26,18 @@ const AnonouncementBar = () => {
         <div className="announcement-wrapper">
           <div className="phone-item">
             <i><FaPhone /></i>
-            <p>Phone:</p>
+            <p>{t("announcement.phone")}:</p>
             <a className='number-text' href='tel:+998335003117'>+998975152424</a>
           </div>
           <div className="top-actions">
             <div className="work-time">
               <span className='material-symbols-outlined'>schedule</span>
-              <p>Monday - Sunday 08:00 - 19:00</p>
+              <p>{t("announcement.working_hour")}: 08:00 - 19:00</p>
             </div>
-            <Select onChange={(value) => setLanguage(value)} className='select-language' defaultValue={language}
+            <Select  onChange={(value) => i18n.changeLanguage(value)} className='select-language' defaultValue={localStorage.getItem('i18nextLng')}
               options={[
                 {
-                  value: 'english',
+                  value: 'en',
                   label: 'ENGLISH',
                 },
                 {
@@ -44,15 +45,15 @@ const AnonouncementBar = () => {
                   label: 'РУССКИЙ',
                 },
                 {
-                  value: 'uzbek',
+                  value: 'uz',
                   label: "O'ZBEK",
                 },
               ]}
             />
             {
-              userAuth?.Role === 'User' ? <Link className='auth-link' to={'/patient'}> <span className='material-symbols-outlined'>account_circle</span> Account</Link>
-                : userAuth?.Role === 'Admin' ? <Link className='auth-link' to={'/doctor'}> <span className='material-symbols-outlined'>account_circle</span> Account</Link>
-                  : <Link className='auth-link' to={'/auth/register'}> <span className='material-symbols-outlined'>person</span> Register</Link>
+              userAuth?.Role === 'User' ? <Link className='auth-link' to={'/patient'}> <span className='material-symbols-outlined'>account_circle</span> {t("announcement.account")}</Link>
+                : userAuth?.Role === 'Admin' ? <Link className='auth-link' to={'/doctor'}> <span className='material-symbols-outlined'>account_circle</span> {t("announcement.account")}</Link>
+                  : <Link className='auth-link' to={'/auth/register'}> <span className='material-symbols-outlined'>person</span> {t("announcement.register")}</Link>
             }
           </div>
 
