@@ -51,7 +51,7 @@ const AnonouncementBar = () => {
             />
             {
               userAuth?.Role === 'User' ? <Link className='auth-link' to={'/patient'}> <span className='material-symbols-outlined'>account_circle</span> Account</Link>
-                : userAuth.Role === 'Admin' ? <Link className='auth-link' to={'/doctor'}> <span className='material-symbols-outlined'>account_circle</span> Account</Link>
+                : userAuth?.Role === 'Admin' ? <Link className='auth-link' to={'/doctor'}> <span className='material-symbols-outlined'>account_circle</span> Account</Link>
                   : <Link className='auth-link' to={'/auth/register'}> <span className='material-symbols-outlined'>person</span> Register</Link>
             }
           </div>
