@@ -32,7 +32,6 @@ const UserCard = ({ userItem }) => {
     const [updateUpdateModal, setUpdateUserModal] = useState(false)
     const [updatingFirstname, setUpdatingFirstname] = useState(currentUser?.firstname)
 
-    console.log(imageList);
 
     useEffect(() => {
         setUpdatingFirstname(currentUser?.firstname)
@@ -42,11 +41,10 @@ const UserCard = ({ userItem }) => {
 
     // Using Queries
     const { mutate: mutateDelete } = useDeleteUser()
-    const { mutate: mutateUpdate } = useUpdateUser()
 
 
     useEffect(() => {
-        const handleClickOutside = (event) => {
+        const handleClickOutside = (event: Event) => {
             if (clickOutside.current && !clickOutside.current.contains(event.target)) {
                 setOpenAction(false);
             }
