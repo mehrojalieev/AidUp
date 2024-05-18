@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './PatientSettings.scss'
 import { FaUser } from "react-icons/fa";
 import { Button, Flex, Form, Input, Checkbox, Modal } from 'antd';
@@ -15,7 +15,7 @@ const PatientSettings = () => {
         setIsModalOpen(false);
     };
 
-    const onFinish = (values) => {
+    const onFinish = (values: any) => {
         console.log('Success:', values);
     };
 

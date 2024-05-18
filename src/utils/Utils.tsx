@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react"
+import {  useEffect, useState } from "react"
 import "./Utils.scss"
 import {  Select } from 'antd';
 import { useCreateDoctor } from "../service/mutation/useCreateDoctor";
@@ -221,7 +221,7 @@ export const AddUserModal = ({ openUserModal, setOpenUserModal }: {openUserModal
 
 // --- UPDATE USER MODAL
 
-export const UpdateUserModal = ({updateUserModal, setUpdateUserModal}: {updateUserModal: Boolean, setUpdateUserModal: any}) => {
+export const UpdateUserModal = ({updateUserModal}: {updateUserModal: Boolean, setUpdateUserModal: any}) => {
   return (
     <div style={updateUserModal ? {display: 'flex'} : {display: 'none'}} className="update__modal-overlay">
 
