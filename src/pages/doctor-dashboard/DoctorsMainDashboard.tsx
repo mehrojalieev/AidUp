@@ -5,7 +5,7 @@ import { Link, Outlet, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie'
 const { Header, Sider, Content } = Layout;
 
-const DoctorsMainDashboard = () => {
+const DoctorsMainDashboard: any = () => {
     const [open, setOpen] = useState(false);
     const navigate = useNavigate()
     const {
