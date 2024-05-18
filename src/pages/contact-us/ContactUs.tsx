@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import './ContactUs.scss'
 import Container from '../../utils/Utils'
-import { BiLocationPlus } from 'react-icons/bi'
 
 import Iframe from 'react-iframe'
 import { useLocation } from 'react-router-dom'
@@ -76,7 +75,7 @@ const ContactUs = () => {
             <Iframe
                 url="https://maps.google.com/maps?q=Tashkent%20Dates%10Products&amp;t=&amp;z=12&amp;output=embed"
                 allowFullScreen
-                frameBorder="0"
+                frameBorder={"0" as any}
                 id='location'
                 className='iframe-map'
             />

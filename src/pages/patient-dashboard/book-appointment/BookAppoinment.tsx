@@ -1,10 +1,38 @@
-import React from 'react'
 import { Flex, Input, Button, Row, Col, Badge } from 'antd'
 import { FilterOutlined } from '@ant-design/icons'
-import { doctors } from '../doctors-data';
 import { FaPhoneAlt, FaCalendarAlt, FaStar } from 'react-icons/fa'
 import './BookAppointment.scss'
+
 const BookAppoinment = () => {
+
+    type doctorType = {
+        name: String,
+        img: String,
+        rate: Number,
+        specialization: String,
+        experience: String,
+        location: String,
+        description: String,
+        language: String,
+        price: String,
+    }
+    const doctors: doctorType[] = []
+
+for (let index = 0; index < 12; index++) {
+    doctors.push({
+        name: `John Morgan`,
+        img: `https://xmed.uz/_next/image/?url=https%3A%2F%2Fprod.xmed.uz%2Fimages%2Fdoctor_images%2F56464171.png&w=256&q=75`,
+        rate: 4.5,
+        specialization: `Dermatologist`,
+        experience: `10 years`,
+        location: `Tashkent, Uzbekistan`,
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua`,
+        language: `uz | ru`,
+        price: `1${index} 000 so'm`,
+    })
+
+}
+
     return (
         <div>
             <Flex justify='space-between' align='center'>
@@ -13,7 +41,7 @@ const BookAppoinment = () => {
             </Flex>
             <Row className='doctor-row-container'>
                 {
-                    doctors.map((doctor) => (
+                    doctors.map((doctor: any) => (
                         <Col className="gutter-row">
                             {doctor.rate >= 4 && <Badge.Ribbon text="Top Rated" className='doctor-badge' ></Badge.Ribbon>}
                             <Flex className="doctor-box">

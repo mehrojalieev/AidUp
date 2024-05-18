@@ -1,5 +1,4 @@
 import "./ServicePage.scss";
-import React from "react";
 import Link from "@mui/material/Link";
 import { FaCheck } from "react-icons/fa";
 import Container from "../../utils/Utils";
@@ -8,7 +7,7 @@ import { AiFillHome } from "react-icons/ai";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { NavLink, useParams } from "react-router-dom";
 
-function handleClick(event) {
+function handleClick(event: Event) {
   event.preventDefault();
   console.info("You clicked a breadcrumb.");
 }
@@ -52,7 +51,7 @@ const SercicePage = () => {
         <Container>
           {/* <h2>{heroTitle.id.title}</h2> */}
           <h2>Breast Plants Services </h2>
-          <div role="presentation" onClick={handleClick}>
+          <div role="presentation" onClick={handleClick as any }>
             <Breadcrumbs aria-label="breadcrumb" className="service-bg">
               <Link
                 underline="hover"

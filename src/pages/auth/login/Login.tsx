@@ -1,32 +1,31 @@
-import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google'
-import { LoginSocialFacebook } from 'reactjs-social-login'
-import { createButton } from 'react-social-login-buttons'
-import { BsFacebook } from 'react-icons/bs'
+// import { LoginSocialFacebook  } from 'reactjs-social-login'
+// import { createButton } from 'react-social-login-buttons'
+// import { BsFacebook } from 'react-icons/bs'
 import { useLogin } from '../../../service/mutation/useLogin'
 import { useForm } from 'react-hook-form'
 import { jwtDecode } from "jwt-decode";
 import Cookies from 'js-cookie';
 
-const config = {
-    icon: BsFacebook,
-    style: {
-        background: '#3b5999',
-        width: '43px',
-        height: '40px',
-        padding: '9px',
-        borderRadius: '50%',
-    }
-}
-const FacebookLoginButtons = createButton(config)
+// const config = {
+//     icon: BsFacebook,
+//     style: {
+//         background: '#3b5999',
+//         width: '43px',
+//         height: '40px',
+//         padding: '9px',
+//         borderRadius: '50%',
+//     }
+// }
+// const FacebookLoginButtons = createButton(config)
 const Login = () => {
     const { mutate } = useLogin()
     const { register, handleSubmit } = useForm()
     const navigate = useNavigate()
 
 
-    const handleLogin = (values) => {
+    const handleLogin = (values: any) => {
         mutate(values, {
             onSuccess: (res) => {
                 localStorage.setItem('token', res?.data)
@@ -48,7 +47,7 @@ const Login = () => {
                 <form onSubmit={handleSubmit(handleLogin)} className='auth-form'>
                     <input {...register('email', { required: true })} className='register-input' type="email" placeholder='Email' />
                     <input {...register('password', { required: true })} className='register-input' type="password" placeholder='Password' />
-                    <Link className='forgot__password-text'>Forgot password?</Link>
+                    <Link to={'/'} className='forgot__password-text'>Forgot password?</Link>
                     <div className="field btn">
                         <div className="btn-layer"></div>
                         <input type="submit" value="Login" />
@@ -70,7 +69,7 @@ const Login = () => {
                                 }}
                                 size='large'
                                 theme='filled_blue'
-                                context='contin_with'
+                                context={'contin_with' as any}
                                 locale='english'
                                 type='icon'
                                 shape='circle'
@@ -80,19 +79,19 @@ const Login = () => {
                             />
                         </GoogleOAuthProvider>
                         {/* FACEBOOK LOGIN */}
-                        <LoginSocialFacebook
+                        {/* <LoginSocialFacebook
                             appId='678828277643445'
                             fields='id'
-                            onResolve={(response) => {
+                            onResolve={(response: Response) => {
                                 console.log(response);
                             }}
-                            onReject={(error) => {
+                            onReject={(error: Error) => {
                                 console.log(error);
                             }}
                         >
                             <FacebookLoginButtons
                             />
-                        </LoginSocialFacebook>
+                        </LoginSocialFacebook> */}
                     </div>
 
                 </form>

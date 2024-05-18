@@ -1,4 +1,4 @@
-import { Skeleton } from 'antd'
+// import { Skeleton } from 'antd'
 import './Table.scss'
 import DoctorTr from './doctor-tr/DoctorTr'
 import { Key } from 'react';
@@ -7,7 +7,6 @@ import PatientTr from './patient-tr/PatientTr';
 import { AppointmentType } from '../../types';
 
 const Table = ({ tableHeader, renderData, rowPage, tableType }: { tableHeader?: any, renderData: any, rowPage: any, tableType: String }) => {
-    console.log(tableType);
 
     return (
         <>
@@ -57,27 +56,27 @@ const Table = ({ tableHeader, renderData, rowPage, tableType }: { tableHeader?: 
                             </tbody>
                         </table>
                         : tableType === 'patients' ?
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>NAME</th>
-                                    <th>EMAIL</th>
-                                    <th>DOB</th>
-                                    <th>GENDER</th>
-                                    <th>MEDICAL HSITORY</th>
-                                    <th>ACTION</th>
-                                </tr>
-                            </thead>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>NAME</th>
+                                        <th>EMAIL</th>
+                                        <th>DOB</th>
+                                        <th>GENDER</th>
+                                        <th>MEDICAL HSITORY</th>
+                                        <th>ACTION</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     {
-                                        renderData?.map((patient: AppointmentType, index: any) => 
-                                            <PatientTr countColumn={index + 1} patient={patient} key={index}/>
+                                        renderData?.slice(0, rowPage).map((patient: AppointmentType, index: any) =>
+                                            <PatientTr countColumn={index + 1} patient={patient} key={index} />
                                         )
                                     }
                                 </tbody>
-                        </table>
-                        : null
+                            </table>
+                            : null
             }
             {/* // :
                     // [1, 2, 3, 4, 5, 6, 7, 78, 1, 1, 1, 1, 1, 1].map((_, index) =>

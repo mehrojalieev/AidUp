@@ -1,5 +1,4 @@
 import "./Footer.scss";
-import { TfiEmail } from "react-icons/tfi";
 import { FaFacebookF, FaPhoneAlt } from "react-icons/fa";
 import { MdEmail, MdOutlineDateRange } from "react-icons/md";
 import Container from "../../utils/Utils";

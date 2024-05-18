@@ -1,4 +1,3 @@
-import React from 'react'
 import { Routes, Route } from "react-router-dom"
 import Home from '../pages/home/Home'
 import Register from '../pages/auth/register/Register'
@@ -10,7 +9,6 @@ import ContactUs from '../pages/contact-us/ContactUs'
 import Appointment from '../pages/appointment/Appointment'
 
 import PatientDashboard from '../pages/patient-dashboard/PatientDashboard'
-import MainDashboard from '../pages/patient-dashboard/main-dashboard/MainDashboard'
 import BookAppoinment from '../pages/patient-dashboard/book-appointment/BookAppoinment'
 import PatientAppointments from '../pages/patient-dashboard/patient-appointments/PatientAppointments'
 import PatientSettings from '../pages/patient-dashboard/settings/PatientSettings'
@@ -21,6 +19,7 @@ import Appointments from '../pages/doctor-dashboard/appointments/Appointments'
 import Users from '../pages/doctor-dashboard/users/Users'
 import ServicePage from '../pages/service-page/ServicePage'
 import AboutUs from '../pages/about-us/AboutUs'
+import MainDashboard from "../pages/patient-dashboard/main-dashboard/MainDashboard"
 
 
 const RouteController = () => {
@@ -38,7 +37,7 @@ const RouteController = () => {
       <Route path='appointment' element={<Appointment />} />
 
       <Route path='patient' element={<PatientDashboard />}>
-        <Route index  element={<MainDashboard />} />
+        <Route index  element={<MainDashboard /> } />
         <Route path="book-appointment" element={<BookAppoinment />} />
         <Route path='my-appointment' element={<PatientAppointments />} />
         <Route path='my-settings' element={<PatientSettings />} />
