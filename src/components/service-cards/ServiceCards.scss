@@ -1,20 +1,223 @@
-.service-cards{
+.service-cards {
     margin-top: 2rem;
-
 }
 
-.service__cards-header{
+.service__cards-header {
     width: 100%;
     text-align: center;
-    .card__header-subtitle{
-            font-size: 18px;
-            color: var(--success-color);
+
+    .card__header-subtitle {
+        font-size: 18px;
+        color: var(--success-color);
     }
-    .card__header-title{
+
+    .card__header-title {
         color: var(--primary-dark-color);
         font-size: 46px;
         max-width: 600px;
         font-weight: 800;
         margin: 1rem auto 0;
+    }
+}
+
+.card__items-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem 2rem;
+    margin-top: 2rem;
+}
+
+.card-item {
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+    padding: 2rem .6rem;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: var(--light-color);
+
+    img {
+        width: 80px;
+        aspect-ratio: 1/1;
+        background-color: #E6E9EE;
+        border-radius: 50%;
+        padding: 10px;
+    }
+
+    .item-title {
+        font-size: 23px;
+        margin-top: 10px;
+        color: var(--primary-dark-color);
+    }
+
+    .item-doctor {
+        font-weight: 600;
+        margin-top: 10px;
+        color: var(--secondary-dark-color);
+    }
+
+    .item-btn {
+        margin-top: 1.2rem;
+        padding: .7rem 1.8rem;
+        border-radius: 24px;
+        color: var(--primary-dark-color);
+        border: none;
+        font-size: 15px;
+        color: var(--light-color);
+        background-color: var(--primary-light-color);
+        font-weight: 700;
+        transition: .2s;
+
+        &:hover {
+            cursor: pointer;
+            opacity: .8;
+        }
+    }
+}
+
+
+@media only screen and (max-width:1030px) {
+    .card__items-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width:892px) {
+    .service-cards {
+        margin-top: 3rem;
+    }
+
+    .service__cards-header {
+        .card__header-subtitle {
+            font-size: 18px;
+        }
+
+        .card__header-title {
+            font-size: 38px;
+            line-height: 3rem;
+            max-width: 550px;
+            margin: 1rem auto 0;
+        }
+    }
+
+    .card-item {
+        padding: 1.8rem .4rem;
+
+        img {
+            width: 70px;
+        }
+
+        .item-title {
+            font-size: 20px;
+        }
+
+        .item-doctor {
+            font-size: 15px;
+        }
+
+        .item-btn {
+            padding: .6rem 1.5rem;
+            font-size: 14px;
+        }
+    }
+}
+
+@media only screen and (max-width:798px) {
+    .card__items-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-item {
+        width: 100%;
+        padding: 2rem .4rem;
+
+        img {
+            width: 70px;
+        }
+
+        .item-title {
+            font-size: 22px;
+        }
+
+        .item-doctor {
+            font-size: 17px;
+        }
+
+        .item-btn {
+            padding: .6rem 1.8rem;
+            font-size: 16px;
+        }
+    }
+}
+
+@media only screen and (max-width:598px) {
+    .service__cards-header {
+        .card__header-subtitle {
+            font-size: 16px;
+        }
+
+        .card__header-title {
+            font-size: 32px;
+            line-height: 2.6rem;
+            max-width: 500px;
+            margin: 1rem auto 0;
+        }
+    }
+
+    .card__items-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.2rem 1.5rem;
+    }
+
+    .card-item {
+        width: 100%;
+        padding: 2rem .4rem;
+
+        img {
+            width: 65px;
+        }
+
+        .item-title {
+            font-size: 20px;
+        }
+
+        .item-doctor {
+            font-size: 16px;
+        }
+
+        .item-btn {
+            padding: .5rem 1.6rem;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+}
+
+@media only screen and (max-width:482px){
+    .card__items-wrapper{
+        grid-template-columns: 1fr;
+    }
+    .card-item {
+        max-width: 100%;
+        padding: 2rem .4rem;
+
+        img {
+            width: 80px;
+        }
+
+        .item-title {
+            font-size: 25px;
+            margin-top: 1rem;
+        }
+
+        .item-doctor {
+            font-size: 17px;
+        }
+
+        .item-btn {
+            padding: .6rem 2.5rem;
+            font-size: 15px;
+            font-weight: 500;
+        }
     }
 }

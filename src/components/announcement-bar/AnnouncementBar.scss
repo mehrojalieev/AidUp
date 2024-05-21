@@ -1,7 +1,7 @@
 .announcement{
     width: 100%;
     background-color: var(--primary-light-color);
-    height: 50px;
+    height: 40px;
     display: flex;
     align-items: center;
 }
@@ -100,5 +100,25 @@
    
     span{
         font-size: 22px;
+    }
+}
+
+
+// RESPONSIVE STYLE
+@media only screen and (max-width:815px){
+    .phone-item{
+        i{
+            width: 29px;
+            padding: 5px;
+            font-size: 15px;
+            
+        }
+        p{
+            font-size: 15px;
+
+        }
+        .number-text{
+            font-size: 16px;
+        }
     }
 }

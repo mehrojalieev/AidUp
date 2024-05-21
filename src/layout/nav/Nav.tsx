@@ -43,7 +43,7 @@ const MenuData = [
 
 const Nav = () => {
 
-  const {t} = useTranslation()
+  const { t } = useTranslation()
 
   const { pathname } = useLocation()
 
@@ -52,6 +52,7 @@ const Nav = () => {
   // State Hooks
   const [openResponsiveMenu, setOpenResponsiveSubMenu] = useState(false)
   const [openSubitems, setOpenSubitems] = useState(false)
+  const [openMenuSidebar, setOpenMenuSidebar] = useState<Boolean>(false)
   const [scrollY, setScrollY] = useState(0)
 
   const UpdateScrollPosition = () => {
@@ -75,52 +76,29 @@ const Nav = () => {
           <Link to={'/'} className="nav-logo">
             <h1>AzharInc</h1>
           </Link>
-
           <ul className="nav-menu">
-                  <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={'/'} > {t("nav.home")}</NavLink>
-                  <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"}  to='services'> {t("nav.service")}</NavLink>
-                  <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"}  to='contact-us'> {t("nav.contact")}</NavLink>
-                  <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to='about-us'> {t("nav.about")}</NavLink>
+            <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={'/'} > {t("nav.home")}</NavLink>
+            <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to='services'> {t("nav.service")}</NavLink>
+            <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to='contact-us'> {t("nav.contact")}</NavLink>
+            <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to='about-us'> {t("nav.about")}</NavLink>
           </ul>
-
-
-
-
-
-
           <div className="authorization-action">
             <Link to={'/appointment'} className="appointment-link">{t("nav.appointment")} + </Link>
           </div>
 
-          <Link to={'/auth/login'} className="responsive-auth">
-            <span className="material-symbols-outlined">person</span>
-            <strong>Sign in</strong>
-          </Link>
-          <span onClick={() => setOpenResponsiveSubMenu(!openResponsiveMenu)} className="material-symbols-outlined hamburger-btn">{openResponsiveMenu ? 'close' : 'menu'}</span>
+          <span onClick={() => setOpenMenuSidebar(!openMenuSidebar)} className="material-symbols-outlined hamburger-btn">menu</span>
         </div>
       </Container>
 
-      {/* Responsive menu */}
-      <ul style={openResponsiveMenu ? { display: 'flex' } : { display: 'none' }} className="responsive__menu-wrapper">
-        {
-          MenuData.map((item, index) =>
-            <li key={index} className="menu-item">
-              <Link to={'/'} onClick={() => setOpenSubitems(!openSubitems)} className="item-link">
-                {item.title}
-                <span className="material-symbols-outlined"> {item.icon}</span>
-              </Link>
-              <div className="item-subitem">
-                {
-                  item?.menu_items?.map((subitem, index) =>
-                    <Link to={'/'} key={index} className="subitem-link">{subitem.item_name}</Link>
-                  )
-                }
-              </div>
-            </li>
-          )
-        }
-
-      </ul>
+      <div style={openMenuSidebar ? { transform: 'translateX(0)' } : { transform: 'translateX(100%)' }} className="nav__responsive-sidebar__overlay">
+        <aside className="nav__responsive-sidebar">
+          <div className="responsvie__sidebar-header">
+            <i onClick={() => setOpenMenuSidebar(false)} className="close-icon">
+              <span className="material-symbols-outlined ">close</span>
+            </i>
+          </div>
+        </aside>
+      </div>
     </nav>
   )
 }

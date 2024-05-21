@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 import Cookies from "js-cookie";
 
 
-const ApiInstance = axios.create({
+const ApiInstance: AxiosInstance = axios.create({
   baseURL: "http://45.138.158.240:4040/api",
   headers: {
     "Content-type": "application/json",
