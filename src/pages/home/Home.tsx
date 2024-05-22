@@ -4,6 +4,7 @@ import Patient from '../../components/patient/Patient'
 import Statistics from '../../components/statistics/Statistics'
 import MeetTeam from '../../components/meet-team/MeetTeam'
 import HomeAppointment from '../../components/home-appointment/HomeAppointment'
+import ServiceCards from '../../components/service-cards/ServiceCards'
 
 const Home = () => {
 
@@ -27,6 +28,7 @@ const Home = () => {
   return (
     <div>
       <Hero/>
+      <ServiceCards/>
       <Statistics/>
       <MeetTeam/>
       <HomeAppointment/>

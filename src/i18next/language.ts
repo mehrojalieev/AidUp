@@ -6,21 +6,21 @@ const Languages: any = ['uz', 'ru', 'en']
 
 
 i18n.use(Backend)
-    i18n.use(LanguageDetector)
-    i18n.use(initReactI18next)
-    i18n.init({
-        fallbackLng: 'uz',
-        debug: false,
-        whitelist: Languages,
-        interpolation: {
-            escapeValue: false
-        },
-        delection: {
-            order: ['cookie', 'localStorage'],
-            lookupCookie: 'lang',
-            lookupLocalStorage: 'lang',
-            caches: ['cookie', 'localStorage']
-        }
-    })
+i18n.use(LanguageDetector)
+i18n.use(initReactI18next)
+i18n.init({
+    fallbackLng: 'uz',
+    debug: false,
+    whitelist: Languages,
+    interpolation: {
+        escapeValue: false
+    },
+    delection: {
+        order: ['cookie', 'localStorage'],
+        lookupCookie: 'lang',
+        lookupLocalStorage: 'lang',
+        caches: ['cookie', 'localStorage']
+    }
+})
 
 export default i18n
