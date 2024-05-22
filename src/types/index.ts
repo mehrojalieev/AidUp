@@ -1,4 +1,19 @@
 import React from "react";
+import Eng from '../../public/locales/en/translation.json'
+import Ru from '../../public/locales/ru/translation.json'
+import Uz from "../../public/locales/uz/translation.json"
+
+
+declare module 'i18next' {
+    interface LanguageType {
+        defaultNS: 'en'
+        resourses: {
+            en: typeof Eng,
+            ru: typeof Ru,
+            uz: typeof Uz,
+        }
+    }
+}
 
 export type Children = {
     children: React.ReactNode
