@@ -70,12 +70,12 @@ nav {
 }
 
 .hamburger-btn {
-    display: none;
     background-color: var(--primary-light-color);
     padding: 8px 12px;
     border-radius: 5px;
     color: var(--light-color);
     font-size: 30px;
+    display: none !important;
 }
 
 .menu__dropdown-list {
@@ -136,11 +136,12 @@ nav {
         width: 150px !important;
         padding: 10px 10px 20px 10px;
         border-radius: 6px;
-        display: none;
-        row-gap: 1.2rem;
+        // display: none;
+        // row-gap: 1.2rem;
         width: fit-content;
         flex-direction: column;
         .option-link{
+            padding: 10px 0;
             display: flex;
             align-items: center;
             color: var(--secondary-dark-color);

@@ -76,6 +76,9 @@ const Nav = () => {
 
   // State Hooks
   const [openMenuSidebar, setOpenMenuSidebar] = useState<Boolean>(false)
+  const [menuOptions, setMenuOptions] = useState<boolean>(false)
+  console.log(menuOptions);
+  
   const [scrollY, setScrollY] = useState(0)
 
   const UpdateScrollPosition = () => {
@@ -101,12 +104,12 @@ const Nav = () => {
           </Link>
           <ul className="nav-menu">
             <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={'/'} > {t("nav.home")}</NavLink>
-            <NavLink  className={({ isActive }) => isActive ? "item-link service-link item-link--active" : "item-link service-link"} to='services'>
+            <NavLink onMouseLeave={() => setMenuOptions(false)} onMouseEnter={() => setMenuOptions(true)}  className={({ isActive }) => isActive ? "item-link service-link item-link--active" : "item-link service-link"} to='services'>
                {t("nav.service")}
-               <div className="link-options">
+               <div style={menuOptions ? {display: 'flex'} : {display: 'none'}}  className="link-options">
             {
               AllServices.map((service, index) => 
-              <Link className="option-link" to={`/service/${service.link}`} key={index}><span className="material-symbols-outlined">medical_services</span>{service.title}</Link>
+              <Link onClick={() => setMenuOptions(false)} className="option-link" to={`/service/${service.link}`} key={index}><span className="material-symbols-outlined">medical_services</span>{service.title}</Link>
               )
             }
                </div>
@@ -126,7 +129,7 @@ const Nav = () => {
         <aside className="nav__responsive-sidebar">
           <div className="responsvie__sidebar-header">
             <i onClick={() => setOpenMenuSidebar(false)} className="close-icon">
-              <span className="material-symbols-outlined ">close</span>
+              {/* <span className="material-symbols-outlined ">close</span> */}
             </i>
           </div>
         </aside>
