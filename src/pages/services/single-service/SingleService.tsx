@@ -1,6 +1,6 @@
 import Container from "../../../utils/Utils";
 import "./SingleService.scss"
-import { NavLink, useParams } from 'react-router-dom'
+import { Link, NavLink, useParams } from 'react-router-dom'
 import { CollapseProps, Collapse } from 'antd';
 
 
@@ -86,6 +86,18 @@ const SingleService = () => {
 
   return (
     <div className="single-service">
+      <div className="single__service-banner">
+        <img src="https://i.pinimg.com/originals/d0/83/10/d083104dd0c567eb047ed93e92fa88bd.jpg"  />
+        <div className="single__banner-content">
+          <h3 className="content-subtitle"> Service Details</h3>
+          <div className="banner__link-content">
+            <Link className='home-link' to='/'>Home </Link>
+            <span>{'>'}</span>
+            <p>Services</p>
+          </div>
+        </div>
+      </div>
+
       <Container>
         <div className="service__content-main__wrapper">
           <div className="categories__content-wrapper">
@@ -120,7 +132,7 @@ const SingleService = () => {
           <div className="information__content-wrapper">
             <img src="https://aisdent.com/wp-content/uploads/2023/08/young-patient-black-goggles-getting-her-teeth-treated-by-female-hygienist-using-dental-curing-light-2048x1365.jpg" className="content-banner" />
             <div className="content-info">
-              <h2 className="info-title">What is Dental Care ?</h2>
+              <h2 className="info-title">What is {service_name} Care ?</h2>
               <p className="info-description">From primary care and pediatrics to specialized services like dermatology, orthopedics, and women's health, we offer a wide spectrum of medical services under one roof. This means you can receive all the care you need conveniently in one location.</p>
               <p className="info-description">Your health and well-being are our top priorities. We take the time to listen to your concerns, answer your questions, and involve you in the decision-making process for your healthcare. We believe in empowering our patients to make informed choices about their health.</p>
             </div>
