@@ -57,8 +57,10 @@
     }
 
     .item-btn {
-        margin-top: 1.2rem;
+        display: inline-block;
         padding: .7rem 1.8rem;
+        margin-top: 1.2rem;
+        text-decoration: none;
         border-radius: 24px;
         color: var(--primary-dark-color);
         border: none;

@@ -20,7 +20,7 @@ import Users from '../pages/doctor-dashboard/users/Users'
 import AboutUs from '../pages/about-us/AboutUs'
 import MainDashboard from "../pages/patient-dashboard/main-dashboard/MainDashboard"
 import Services from "../pages/services/Services"
-
+import SingleService from "../pages/services/single-service/SingleService"
 
 const RouteController = () => {
   return (
@@ -50,7 +50,8 @@ const RouteController = () => {
       </Route>
 
       <Route path="services" element={<Services/>}/>
-
+      <Route path="service/:service_name" element={<SingleService/>}/>
+      
     </Routes>
   )
 }

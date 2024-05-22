@@ -5,40 +5,65 @@ import { useEffect, useState } from "react"
 // import { UserOutlined } from "@ant-design/icons"
 import { useTranslation } from "react-i18next"
 
-const MenuData = [
+const AllServices = [
+
   {
-    title: "Home",
-    route_link: "/"
-  },
-  {
-    title: "Services",
-    icon: "keyboard_arrow_down",
-    route_link: 'services',
-    menu_items: [
-      { item_name: "Angioplasty Services", link: "service/angioplasty" },
-      { item_name: "Cardiology Services", link: "service/cardiology" },
-      { item_name: "Dental Services", link: "service/dental" },
-      { item_name: "Endocrinology Services", link: "service/endocrinology" },
-      { item_name: "Eye Care Services", link: "service/eye" },
-      { item_name: "Neurology Services", link: "service/neurology" },
-      { item_name: "Physical therapy", link: "service/physical" },
-      { item_name: "RMI Services", link: "service/rmi" },
-    ]
+    title: 'Dental Care',
+    doctors: 20,
+    img: 'https://cdn0.iconfinder.com/data/icons/dentist-element-1/64/Clear-tooth-teeth-dentist-dental-tool-1024.png',
+    link: 'dental'
   },
 
   {
-    title: "Contact Us",
-    route_link: 'contact-us'
+    title: 'Neurology Care',
+    doctors: 10,
+    img: 'https://magentajaya.com/wp-content/uploads/2023/02/MGT-04.png',
+    link: 'neurology'
+
   },
   {
-    title: "About Us",
-    route_link: 'about-us'
+    title: 'Gynecologists',
+    doctors: 30,
+    img: 'https://www.clipartmax.com/png/full/298-2989665_pregnancy-breastfeeding-infant-alcohol-pregnancy.png',
+    link: 'gynecologist'
   },
   {
-    title: "FAQ",
-    route_link: 'faq'
+    title: 'Ophthalmology',
+    doctors: 24,
+    img: 'https://thumbs.dreamstime.com/b/%D0%B7%D0%BD%D0%B0%D1%87%D0%BE%D0%BA-%D0%B3%D0%BB%D0%B0%D0%B7%D0%B0-%D0%B8%D0%BB%D0%BB%D1%8E%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F-%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%B0-%D0%BE%D1%84%D1%82%D0%B0%D0%BB%D1%8C%D0%BC%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8-%D0%B8%D0%B7%D0%BE%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BE%D0%BD%D1%82%D1%83%D1%80-238706025.jpg',
+    link: 'ophthalmology'
+
+  },
+  {
+    title: 'Orthopedics',
+    doctors: 26,
+    img: 'https://hospitalcmml.com/assets/uploads/especialidades/Ortopedia.png',
+    link: 'orthopedics'
+
+  },
+  {
+    title: 'Cardiology',
+    doctors: 20,
+    img: 'https://static.vecteezy.com/system/resources/previews/010/310/449/original/heart-human-organ-color-icon-illustration-vector.jpg',
+    link: 'cardiology',
+
+  },
+  // ----------------------------------
+
+  {
+    title: 'Pulmonology',
+    doctors: 26,
+    img: 'https://eifa.ru/upload/iblock/37d/slide_1.png',
+    link: 'pulmonology',
+  }, {
+    title: 'Audiology Care',
+    doctors: 20,
+    img: 'https://static-00.iconduck.com/assets.00/ear-icon-1945x2048-w8nphm9t.png',
+    link: 'audiology',
   },
 ]
+
+
 
 
 const Nav = () => {
@@ -50,8 +75,6 @@ const Nav = () => {
 
 
   // State Hooks
-  const [openResponsiveMenu, setOpenResponsiveSubMenu] = useState(false)
-  const [openSubitems, setOpenSubitems] = useState(false)
   const [openMenuSidebar, setOpenMenuSidebar] = useState<Boolean>(false)
   const [scrollY, setScrollY] = useState(0)
 
@@ -78,7 +101,16 @@ const Nav = () => {
           </Link>
           <ul className="nav-menu">
             <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={'/'} > {t("nav.home")}</NavLink>
-            <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to='services'> {t("nav.service")}</NavLink>
+            <NavLink  className={({ isActive }) => isActive ? "item-link service-link item-link--active" : "item-link service-link"} to='services'>
+               {t("nav.service")}
+               <div className="link-options">
+            {
+              AllServices.map((service, index) => 
+              <Link className="option-link" to={`/service/${service.link}`} key={index}><span className="material-symbols-outlined">medical_services</span>{service.title}</Link>
+              )
+            }
+               </div>
+               </NavLink>
             <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to='contact-us'> {t("nav.contact")}</NavLink>
             <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to='about-us'> {t("nav.about")}</NavLink>
           </ul>

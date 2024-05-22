@@ -8,13 +8,13 @@ import { ToastContainer } from 'react-toastify';
 function App() {
   return (
     <div className="App">
-      {/* <AnonouncementBar/> */}
-      {/* <Nav /> */}
+      <AnonouncementBar/>
+      <Nav />
       <RouteController />
       <Footer />
       <ToastContainer/>
     </div>
-  );
+  )
 }
 
 export default App;
